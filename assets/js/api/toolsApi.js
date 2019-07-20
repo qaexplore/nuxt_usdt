@@ -1,6 +1,8 @@
 import axios from '../axios/config'
 
-let time = {offset: 8 * 60 * 1000}
+let time = {
+  offset: 8 * 60 * 1000
+}
 let timeFn = () => {
   return axios.get('/tools/time/zone/offset')
 }
@@ -11,21 +13,21 @@ timeFn()
 const ToolsActions = {
   time: time,
   // 获取合约列表
-  getContractList () {
+  getContractList() {
     return axios.post('/contract/list')
   },
-  coin () {
+  coin() {
     return axios.post('/tools/dict/currency/list')
   },
-  product () {
+  product() {
     return axios.post('/tools/dict/product/list')
   },
   // 获取币种支持站点
-  getCurrencyAll () {
+  getCurrencyAll() {
     return axios.post('/tools/dict/site/currency/all')
   },
   // 获取主账户信息
-  getMainSite () {
+  getMainSite() {
     return axios.post('/tools/dict/site/main')
   }
 }

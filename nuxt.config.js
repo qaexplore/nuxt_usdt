@@ -54,6 +54,8 @@ export default {
       src: '~/plugins/language'
     }, {
       src: '~/plugins/dictionary'
+    }, {
+      src: '~/plugins/filter'
     }
   ],
   router: {
