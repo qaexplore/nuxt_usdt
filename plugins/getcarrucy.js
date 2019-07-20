@@ -1,7 +1,9 @@
 import SwapsApi from '@/assets/js/api/swapsApi'
 import Filter from '@/assets/js/filter'
 export default ({
-  store
+  store,
+  route,
+  redirect
 }) => {
   SwapsApi.getContractAllList().then(res => {
     let arr = res.data.contractList || []
@@ -12,7 +14,8 @@ export default ({
       }
     })
     store.commit('market/SET_CONTRACT', arr)
-
+    if (!!route.params.id) return
+    redirect(`/trade/${arr[0].id}`)
   }).catch(err => {
     console.log(err)
   })
