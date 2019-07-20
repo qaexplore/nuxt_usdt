@@ -159,9 +159,8 @@ export default {
     }
   },
   mounted() {
-    if(process.client) return;
     lottie.loadAnimation({
-      path: "/static/json/hot.json", // json文件路径
+      path: "/json/hot.json", // json文件路径
       loop: true,
       autoplay: true,
       renderer: "svg", // 渲染方式，有"html"、"canvas"和"svg"三种
