@@ -74,7 +74,7 @@ class WsRq {
             // product: obj.contractId
             product: item.id
           }
-          this.store.dispatch('saveOrder', data)
+          this.store.dispatch('market/saveOrder', data)
         }).catch(err => {
 
         })
@@ -90,7 +90,7 @@ class WsRq {
           // product: obj.contractId
           product: item.id
         }
-        this.store.dispatch('saveOrder', data)
+        this.store.dispatch('market/saveOrder', data)
       }).catch(err => {
 
       })

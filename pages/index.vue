@@ -193,8 +193,9 @@ export default {
     }
   },
   created () {
+    if (!process.client) return
     this.contentStyle = 'width: ' + (this.$store.state.dictionary.screenWidth-(this.$store.state.dictionary.barWidth + this.$store.state.dictionary.boxWidth)).toString() + 'px'
-
+  
     if (this.$store.state.market.tradeFirst) {
       this.init()
       this.$store.commit('market/SET_TRADEFIRST', false)

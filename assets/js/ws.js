@@ -18,8 +18,8 @@ class Socket {
     }
     this.ws.onopen = () => {
       this.check()
-      store.commit('SET_FIRSTORDER', true)
-      store.commit('SET_CONNECT', true)
+      this.store.commit('market/SET_FIRSTORDER', true)
+      this.store.commit('market/SET_CONNECT', true)
     }
     this.ws.onmessage = (data) => {
       if (data.data instanceof Blob) {
@@ -28,12 +28,12 @@ class Socket {
     }
     this.ws.onerror = () => {
       this.closeCheck()
-      store.commit('SET_CONNECT', false)
+      this.store.commit('market/SET_CONNECT', false)
       this.reConnection()
     }
     this.ws.onclose = () => {
       this.closeCheck()
-      store.commit('SET_CONNECT', false)
+      this.store.commit('market/SET_CONNECT', false)
       this.reConnection()
     }
   }
@@ -122,21 +122,21 @@ class Socket {
       this.dataId = null
       sub.subOrderBook(data.product)
     }
-    Object.keys(data.data).length > 0 && store.dispatch('saveOrder', data)
+    Object.keys(data.data).length > 0 && this.store.dispatch('saveOrder', data)
   }
   // 成交历史
   tradeHistory(data) {
     //console.log(data)
-    store.commit('market/SET_HISTORYLIST', data.data)
+    this.store.commit('market/SET_HISTORYLIST', data.data)
   }
   // 最新价
   tickerCallBack(data) {
     //console.log(data)
-    store.commit('market/SET_TICKERS', data.data)
+    this.store.commit('market/SET_TICKERS', data.data)
   }
   // 委托成功推送
   orderCallBack(data) {
-    store.commit('market/SET_WS_ORDER', data.data)
+    this.store.commit('market/SET_WS_ORDER', data.data)
   }
   // 暂时没用
   positionCallBack(data) {
@@ -145,7 +145,7 @@ class Socket {
   // 市场信息（指数价等）
   marketCallBack(data) {
     data.data.contractId = data.product
-    store.commit('market/SET_MARKET', data.data)
+    this.store.commit('market/SET_MARKET', data.data)
   }
   // 获取全部指数
   allIndexPrice(data) {
@@ -156,7 +156,7 @@ class Socket {
       data_obj.indexPrice = data_obj.price;
       obj[k] = data_obj;
     }
-    store.commit('market/SET_MARKET_ALL', obj);
+    this.store.commit('market/SET_MARKET_ALL', obj);
   }
 }
 
