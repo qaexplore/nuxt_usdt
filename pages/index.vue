@@ -6,6 +6,23 @@
     <swaps-header></swaps-header>
     <st-row style="margin-top: 50px;width:100%;" class="main clearfix">
       <trade-tags></trade-tags>
+      <div class="content" :style="contentStyle+';overflow:hidden;'">
+        <st-row>
+          <product-market class="margin">
+            <!-- <trade-list <trading-view></trading-view> -->
+          </product-market>
+          <trade-list ref="trade-list" class="margin margin-left10"></trade-list>
+        </st-row>
+        <st-row class="bottom" style="margin-top: 10px">
+          <!-- <trade-detail-list></trade-detail-list> -->
+          <div>
+            <st-row>
+              <!-- <asset-information></asset-information> -->
+              <!-- <trade-operate style="margin-left: 10px;"></trade-operate> -->
+            </st-row>
+          </div>
+        </st-row>
+      </div>
     </st-row>
   </div>
 </template>
@@ -23,8 +40,8 @@ import SwapsHeader from '@/components/swaps-header.vue'
 // import Toolbar from '@/components/trade/toolbar'
 import TradeTags from '@/components/trade/new-trade-tags'
 // import TradingView from '@/components/trade/trading-view.vue'
-// import ProductMarket from '@/components/trade/product-market.vue'
-// import TradeList from '@/components/trade/trade-list'
+import ProductMarket from '@/components/trade/product-market.vue'
+import TradeList from '@/components/trade/trade-list'
 // import TradeDetailList from '@/components/trade/trade-detail-list'
 // import AssetInformation from '@/components/trade/asset-information'
 // import TradeOperate from '@/components/trade/trade-operate'
@@ -56,8 +73,8 @@ export default {
     // Toolbar,
     TradeTags,
     // TradingView,
-    // ProductMarket,
-    // TradeList,
+    ProductMarket,
+    TradeList,
     // TradeDetailList,
     // AssetInformation,
     // TradeOperate,
@@ -93,10 +110,7 @@ export default {
     },
     // 位数要求
     figure() {
-      // return this.$store.state.market.contract.filter(item => {
-      //   return item.id.toString() === this.contractInfo.id.toString();
-      // })[0].contractParam;
-      return 2
+      return !!this.$store.state.market.contract.filter(item => Number(item.id) === Number(this.contractInfo.id))[0] ? this.$store.state.market.contract.filter(item => Number(item.id) === Number(this.contractInfo.id))[0].contractParam : 2;
     },
     notice() {
       return this.$store.state.dictionary.notice;

@@ -228,7 +228,7 @@
         handler (val) {
           if (val instanceof Array && val.length > 0) {
             let price = val[val.length - 1].price || ''
-            this.$store.commit('SET_SELLONE', price)
+            this.$store.commit('market/SET_SELLONE', price)
           }
         },
         deep: true,
@@ -238,7 +238,7 @@
         handler (val) {
           if (val instanceof Array && val.length > 0) {
             let price = val[0].price || ''
-            this.$store.commit('SET_BUYONE', price)
+            this.$store.commit('market/SET_BUYONE', price)
           }
         },
         deep: true,

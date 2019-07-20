@@ -53,7 +53,7 @@ class Sub {
   }
   // 获取k线时间
   getKtime() {
-    return this.store.state.market.kTime
+    return !!this.store ? this.store.state.market.kTime : ''
   }
   // 取消订阅k线
   cancelK(product) {
