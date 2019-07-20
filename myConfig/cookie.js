@@ -2,6 +2,7 @@
 const stCookie = {
   // 设置cookie
   setCookie: function (name, value, exdays, path, domain) {
+    if (!process.client) return;
     var stExdays = ''
     var stDomain = ''
     if (exdays) {
@@ -16,6 +17,7 @@ const stCookie = {
   },
   // 获取cookie
   getCookie: function (name) {
+    if (!process.client) return;
     var cookieName = name + '='
     var arr = document.cookie.split(';')
     for (var i = 0; i < arr.length; i++) {
@@ -29,6 +31,7 @@ const stCookie = {
   },
   // 清除cookie
   clearCookie: function (name, domain) {
+    if (!process.client) return;
     var date = new Date()
     date.setTime(date.getTime() - 10000)
     var cookieValue = this.getCookie(name)

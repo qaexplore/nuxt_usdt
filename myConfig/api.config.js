@@ -1,7 +1,3 @@
-import {
-  getDomain
-} from './domains.js'
-// const domain = getDomain();
 const domain = '58ex.com';
 
 export default {

@@ -1,0 +1,1463 @@
+.themeBlack () {
+  /* 颜色规范 */
+  // 主账户
+  @linkColor: #597ab9;
+  @borderColor: #eff2f5;
+  @tipColor: #999;
+  @placeholderColor: #ccc;
+  @inputColor: #ced0da;
+  @inputErrorColor: #e6491a;
+  // 交易页面
+  @indexBgColor: #24273d; // 交易页面整体背景颜色
+  @buttonColor: #597ab9; // 一般按钮颜色(确认弹窗）
+  @hoverColor: #4a6dae; // 一般按钮hover颜色(确认弹窗）
+  @buyButtonColor: #32b28f; // 买入按钮颜色  1
+  @buyButtonHoverColor: #259777; // 买入按钮hover颜色  1
+  @sellButtonColor: #b92e5d; // 卖出按钮颜色  1
+  @sellButtonHoverColor: #aa2955; // 卖出按钮hover颜色  1
+  @fontColor: #cbd7f0; // 字体默认颜色  1
+  @markColor: #7e9efd; // 高亮字体颜色  1
+  @boxBgColor: #141625; // 组件整体背景颜色 1
+  @titleBgColor: #1b1c2f; // 组件标题背景颜色 1
+  @titleFontColor: #cbd7f0; // 组件标题字体颜色
+  @tableBorderColor: #212340; // 表格边框颜色
+  @headerColor: #6c85ae; // 白色header字体颜色
+  @headerHoverColor: #1e2266; // 白色header字体hover颜色
+  @handleColor: #5e8bd5; // 表格中操作字体颜色
+  @handleHoverColor: #5f7599; // 表格中操作字体hover颜色
+  @tradeHeaderBgColor: #191b2c; // 交易页面header背景颜色
+  // 新添加部分
+  @indexBgColor: #24273d; // 交易页面整体背景颜色
+  @tagDefaultBgColor: #21233b; // tag标签默认颜色
+  @tagActiveBgColor: #313451; // tag active 颜色
+  @normalFontColor: #666b93; // 一般默认字体颜色 比如 余额：300 的 "余额"
+  @upColor: #48b999; // 上涨的颜色 无论百分比 还是具体的价格 或者数量 已此颜色表示上涨
+  @downColor: #d64172; // 下降的颜色 同上
+  @entrustPercentBgcolorSell: #2d1e33; // 委托列表百分比背景色卖方
+  @entrustPercentBgcolorBuy: #1d2f3b; // 委托列表百分比背景色买方
+  @pageButtonColor: #313151; // 换页按钮颜色
+
+  // 交易页面 交易操作部分
+  @tradeInputColor: #1c1c36;
+  @tradeInputBorderColor: #2b2c58;
+  @newNormalFontColor: #848abc;
+
+  // 弹窗部分
+  @layerTitleBgColor: #303551; // 弹窗标题背景颜色
+  @layerBodyBgColor: #262a43; // 弹窗整体背景颜色
+  //------------------------------------created by zcy-----------------------------------------------------
+
+  // 交易页 公共样式
+  @tradeBgColor: #0d121d;
+  @tradeGreen: #0ab480;
+  @tradeRed: #e12961;
+  @tradeBorderOrLineColor: #20283b;
+  // 交易页面 header
+  @headerTagsNormalFontColor: #7889a9;
+  @headerTagsActiveFontColor: #fff;
+  @headerTagsActiveBorderColor: #7e9efd;
+  @headerLoginLineColor: #20283b;
+  @headerChangeVersionFontColor: #5d6588;
+  @headerUserInfoPopupBgColor: #20283b;
+  @headerBgColor: #151b2a;
+  @headerUserInfoPopupFontColor: #cbd7f0;
+  @headerUserInfoPopupFontShallowColor: #7889a9;
+  @headerUserInfoPopupActiveColor: #181e2f;
+
+  // 交易页面 new-tags
+  @tagsBgColor: #161b2a;
+  @tagsActiveBgColor: #20273d;
+  @tagsActiveBorderColor: #394259;
+  @tagsBorderColor: #20283b;
+  @tagsFontColorGreen: #0ab480;
+  @tagsFontColorRed: #e12961;
+  @tagsProductFontColor: #cbd7f0;
+  @tagsProductActiveFontColor: #7e9efd;
+  @tagsNormalFontColor: #5d6588;
+  @tagsActiveFontColor: #8998b6;
+
+  // 交易页面 product-market
+  @marketBgColor: #161b2a;
+  @marketBrightFontColor: #cbd7f0;
+  @marketFontColor: #5d6588;
+  @marketLineColor: @tradeBorderOrLineColor;
+  @marketSlideButtonBgColor: #262e43;
+  @marketButtonActiveColor: #374160;
+
+  //  交易页面 深度/实时成交列表
+  @entrustListTagsBgColor: #161b2a;
+  @entrustListBgColor: #111621;
+  @entrustListFontColor: #8998b6;
+  @entrustListActiveColor: #7e9efd;
+  @entrustListDeepFontColor: #8998b6;
+  @entrustListDeepButtonBgColor: #ecf0f7;
+  @entrustListDeepButtonActiveBgColor: #b9c7e2;
+  @entrustListDeepColor: #8998b6;
+
+  // 交易页面 工具栏
+  @toolbarBgColor: #161b2a;
+  @toolbarActiveBgColor: #20283b;
+
+  // 交易页面 资产信息
+  @assetBgColor: #121723;
+  @assetFontColor: #cbd7f0;
+  @assetTitleBgColor: #161b2a;
+  @assetStringFontColor: #7889a9;
+  @assetLowFontColor: #5d6588;
+
+  // 交易页面 下单操作部分
+  @tradeOperateBgColor: #121723;
+  @tradeOperateTitleBgColor: #161b2a;
+  @tradeOperateFontColor: #cbd7f0;
+  @tradeOperateSliderBgColor: #4f57ac;
+  @tradeSelectBgColor: #20283b;
+  @tradeInputErrorColor: #e12961;
+  @tradeCloseBtn: #20283b;
+  @tradeCloseBtnFont: #7e9efd;
+
+  // 交易页面 仓位列表部分
+  @positionBgColor: #121723;
+  @positionTitleBgColor: #161b2a;
+
+  // pupup
+  @popupBgColor: #181e2f;
+  @popupFontColor: #cbd7f0;
+
+  // prompt 提示框
+  @promptBgColor: #20283b;
+  @promptFontColor: #cbd7f0;
+
+  // layer-trade 弹窗
+  @layerTradeBgColor: #20283b;
+  @layerTradeFontColor: #cbd7f0;
+  @layerTradeLowFontColor: #7889a9;
+
+  // layer-transfer
+  @layerTransferBgColor: #20283b;
+  @layerTransferInputBgColor: #181e2f;
+  @layerTransferFontColor: #7889a9;
+  @layerTransferActiveFontColor: #cbd7f0;
+  @layerTransferBlueColor: #7e9efd;
+  @layerTransferBorderColor: #39425e;
+
+  // layer-button
+  @layerButtonBgColor: #181e2f;
+  @layerButtonFontColor: #7e9efd;
+
+  // layer-operate-closed 平仓操作弹窗
+  @layerOperateClosedBgColor: #20283b;
+  @layerOperateClosedInputBgColor: #181e2f;
+  @layerOperateClosedInputActiveBorderColor: #39425e;
+  @layerOperateClosedFontColor: #7889a9;
+  @layerOperateClosedActiveFontColor: #cbd7f0;
+  @layerOperateClosedUnitFontColor: #5d6588;
+  @layerOperateClosedButtonActiveColor: #7e9efd;
+
+  // 平仓提示弹窗
+  @layerCloseBgColor: #20283b;
+
+  // 计算器
+  @calculateBgColor: #20283b;
+  @calculateTitleBgColor: #181e2f;
+  @calculateItemBgColor: #181e2f;
+  @calculateActiveBgColor: #38446a;
+
+  // 公告弹窗
+  @layerAnnouncementBgColor: #20283b;
+  @layerAnnouncementTitleBgColor: #181e2f;
+  @layerAnnouncementFontColor: #cbd7f0;
+  @layerAnnouncementActiveFontColor: #7e9efd;
+
+  // 二维码弹出啊
+  @ewmBgColor: #20283b;
+
+  // 意见反馈
+  @feedbackBgColor: #20283b;
+  @feedbackTitleBgColor: #181e2f;
+  @feedbackTipsColor: #7889a9;
+  @feedbackTextFontColor: #cbd7f0;
+  @feedbackTextBgColor: #181e2f;
+  @feedbackButtonBgColor: #7e9efd;
+  // 深度图
+  @deepTitleBgColor: #161b2a;
+  @deepBgColor: #121723;
+
+  // 交易页面 平仓弹框
+  @closeBg: #20283b;
+  @closeInputBg: #181e2f;
+  @closeInputBorder: #dee6f3;
+  @closeInputActive: #181e2f;
+  @tabBg: #181e2f;
+  @tabActive: #7e9efd;
+  @tabActiveFont: #7e9efd;
+
+  // 交易页面 仓位订单
+  @tradeListBlueFontColor: #7e9efd;
+  @tradeListTheadColor: #5d6588;
+  @tradeListFontColor: #cbd7f0;
+  @tradeListBorderColor: #181e2f;
+  @tradeListHoverColor: #181e2f;
+  @tradeListButtonHoverColor: #38446a;
+
+  // emerge 弹窗
+  @emergeBgColor: #697fd5;
+  @emergeGreen: #0ab480;
+  @emergeRed: #c12252;
+}
+.themeWhite () {
+  /* 颜色规范 */
+  // 主账户
+  @linkColor: #597ab9;
+  @borderColor: #eff2f5;
+  @tipColor: #999;
+  @placeholderColor: #ccc;
+  @inputColor: #ced0da;
+  @inputErrorColor: #e6491a;
+  // 交易页面 深度图
+  @deepTitleBgColor: #fff;
+  @deepBgColor: #fff;
+
+  // 交易页面 平仓弹框
+  @closeBg: #fff;
+  @closeInputBg: #fff;
+  @closeInputBorder: #dee6f3;
+  @closeInputActive: #597ab9;
+  @tabBg: #fff;
+  @tabActive: #597ab9;
+  @tabBorderColor: #dee6f3;
+  @tabActiveFont: #597ab9;
+  // 交易页面
+  @indexBgColor: #24273d; // 交易页面整体背景颜色
+  @buttonColor: #597ab9; // 一般按钮颜色(确认弹窗）
+  @hoverColor: #4a6dae; // 一般按钮hover颜色(确认弹窗）
+  @buyButtonColor: #32b28f; // 买入按钮颜色  1
+  @buyButtonHoverColor: #259777; // 买入按钮hover颜色  1
+  @sellButtonColor: #b92e5d; // 卖出按钮颜色  1
+  @sellButtonHoverColor: #aa2955; // 卖出按钮hover颜色  1
+  @fontColor: #cbd7f0; // 字体默认颜色  1
+  @markColor: #7e9efd; // 高亮字体颜色  1
+  @boxBgColor: #fff; // 组件整体背景颜色 1
+  @titleBgColor: #1b1c2f; // 组件标题背景颜色 1
+  @titleFontColor: #cbd7f0; // 组件标题字体颜色
+  @tableBorderColor: #212340; // 表格边框颜色
+  @headerColor: #6c85ae; // 白色header字体颜色
+  @headerHoverColor: #1e2266; // 白色header字体hover颜色
+  @handleColor: #5e8bd5; // 表格中操作字体颜色
+  @handleHoverColor: #5f7599; // 表格中操作字体hover颜色
+  @tradeHeaderBgColor: #191b2c; // 交易页面header背景颜色
+  // 新添加部分
+  @indexBgColor: #24273d; // 交易页面整体背景颜色
+  @tagDefaultBgColor: #21233b; // tag标签默认颜色
+  @tagActiveBgColor: #313451; // tag active 颜色
+  @normalFontColor: #666b93; // 一般默认字体颜色 比如 余额：300 的 "余额"
+  @upColor: #48b999; // 上涨的颜色 无论百分比 还是具体的价格 或者数量 已此颜色表示上涨
+  @downColor: #d64172; // 下降的颜色 同上
+  @entrustPercentBgcolorSell: #2d1e33; // 委托列表百分比背景色卖方
+  @entrustPercentBgcolorBuy: #1d2f3b; // 委托列表百分比背景色买方
+  @pageButtonColor: #313151; // 换页按钮颜色
+
+  // 交易页面 交易操作部分
+  @tradeInputColor: #fff;
+  @tradeInputBorderColor: #b9c7e2;
+  @newNormalFontColor: #848abc;
+
+  // 弹窗部分
+  @layerTitleBgColor: #303551; // 弹窗标题背景颜色
+  @layerBodyBgColor: #262a43; // 弹窗整体背景颜色
+  //------------------------------------created by zcy-----------------------------------------------------
+
+  // 交易页 公共样式
+  @tradeBgColor: #f5f6fa;
+  @tradeGreen: #0ab480;
+  @tradeRed: #e12961;
+  @tradeBorderOrLineColor: #20283b;
+  // 交易页面 header
+  @headerTagsNormalFontColor: #cbd7f0;
+  @headerTagsActiveFontColor: #fff;
+  @headerTagsActiveBorderColor: #7e9efd;
+  @headerLoginLineColor: #20283b;
+  @headerChangeVersionFontColor: #5d6588;
+  @headerUserInfoPopupBgColor: #20283b;
+  @headerBgColor: #151b2a;
+  @headerUserInfoPopupFontColor: #cbd7f0;
+  @headerUserInfoPopupFontShallowColor: #7889a9;
+  @headerUserInfoPopupActiveColor: #181e2f;
+
+  // 交易页面 new-tags
+  @tagsBgColor: #fff;
+  @tagsActiveBgColor: #f3f7fe;
+  @tagsActiveBorderColor: #b9c7e2;
+  @tagsBorderColor: #ecf0f7;
+  @tagsFontColorGreen: #0ab480;
+  @tagsFontColorRed: #e12961;
+  @tagsProductFontColor: #24324c;
+  @tagsProductActiveFontColor: #7e9efd;
+  @tagsNormalFontColor: #5d6588;
+  @tagsActiveFontColor: #8998b6;
+
+  // 交易页面 product-market
+  @marketBgColor: #fff;
+  @marketBrightFontColor: #24324c;
+  @marketFontColor: #5d6588;
+  @marketLineColor: #ecf0f7;
+  @marketSlideButtonBgColor: #ecf0f7;
+  @marketButtonActiveColor: #88a5fe;
+
+  //  交易页面 深度/实时成交列表
+  @entrustListTagsBgColor: #ffffff;
+  @entrustListBgColor: #ffffff;
+  @entrustListFontColor: #8998b6;
+  @entrustListFontNormalColor: #24324c;
+  @entrustListTitleFontColor: #5d6588;
+  @entrustListActiveColor: #7e9efd;
+  @entrustListDeepFontColor: #7889a9;
+  @entrustListDeepButtonBgColor: #ecf0f7;
+  @entrustListDeepButtonActiveBgColor: #b9c7e2;
+  @entrustListPriceColor: #24324c;
+  @entrustListDeepColor: #8998b6;
+
+  @historyNormalFontColor: #24324c;
+
+  // 交易页面 工具栏
+  @toolbarBgColor: #161b2a;
+  @toolbarActiveBgColor: #597ab9;
+
+  // 交易页面 资产信息
+  @assetBgColor: @boxBgColor;
+  @assetFontColor: #24324c;
+  @assetTitleBgColor: @boxBgColor;
+  @assetStringFontColor: #7889a9;
+  @assetLowFontColor: #5d6588;
+  @assetBorderColor: #ecf0f7;
+
+  // 交易页面 下单操作部分
+  @tradeOperateBgColor: #fff;
+  @tradeOperateTitleBgColor: #fff;
+  @tradeOperateTitleFontColor: #24324c;
+  @tradeOperateFontColor: #5d6588;
+  @tradeOperateSliderBgColor: #4f57ac;
+  @tradeSelectBgColor: #20283b;
+  @tradeInputErrorColor: #e12961;
+  @tradeInputUnitColor: #7889a9;
+  @tradeInputLabelColor: #24324c;
+  @tradeInputBorderColor1: #dee6f3;
+  @tradeCloseBtn: #597ab9;
+  @tradeCloseBtnFont: #fff;
+
+  // 交易页面 仓位列表部分
+  @positionBgColor: #fff;
+  @positionTitleBgColor: #fff;
+  @positionTitleFontColor: #7889a9;
+  @noDataFontColor: #7889a9;
+
+  // pupup
+  @popupBgColor: #181e2f;
+  @popupFontColor: #cbd7f0;
+
+  // prompt 提示框
+  @promptBgColor: #20283b;
+  @promptFontColor: #cbd7f0;
+
+  // layer-trade 弹窗
+  @layerTradeBgColor: #20283b;
+  @layerTradeFontColor: #cbd7f0;
+  @layerTradeLowFontColor: #7889a9;
+
+  // layer-transfer
+  @layerTransferBgColor: #20283b;
+  @layerTransferInputBgColor: #181e2f;
+  @layerTransferFontColor: #7889a9;
+  @layerTransferActiveFontColor: #cbd7f0;
+  @layerTransferBlueColor: #7e9efd;
+  @layerTransferBorderColor: #39425e;
+
+  // layer-select
+  @layerSelectFontColor: #24324c;
+  @layerSelectActiveFontColor: #7e9efd;
+  @layerSelectHoverColor: #f3f7fe;
+
+  // layer-button
+  @layerButtonBgColor: #181e2f;
+  @layerButtonFontColor: #7e9efd;
+
+  // layer-operate-closed 平仓操作弹窗
+  @layerOperateClosedBgColor: #20283b;
+  @layerOperateClosedInputBgColor: #181e2f;
+  @layerOperateClosedInputActiveBorderColor: #39425e;
+  @layerOperateClosedFontColor: #7889a9;
+  @layerOperateClosedActiveFontColor: #cbd7f0;
+  @layerOperateClosedUnitFontColor: #5d6588;
+  @layerOperateClosedButtonActiveColor: #7e9efd;
+
+  // 平仓提示弹窗
+  @layerCloseBgColor: #20283b;
+
+  // 计算器
+  @calculateBgColor: #20283b;
+  @calculateTitleBgColor: #181e2f;
+  @calculateItemBgColor: #181e2f;
+  @calculateActiveBgColor: #38446a;
+  @calculateFontColor: #24324c;
+  @calculateTagsBorderColor: #dee6f3;
+  @calculateTagsActiveFontColor: #597ab9;
+  @calculateItemBorderColor: #dee6f3;
+  @calculateItemActiveBorderColor: #b9c7e2;
+  @calculateItemFontColor: #39425e;
+  @calculateItemActiveFontColor: #597ab9;
+
+  // 公告弹窗
+  @layerAnnouncementBgColor: #20283b;
+  @layerAnnouncementTitleBgColor: #181e2f;
+  @layerAnnouncementFontColor: #24324c;
+  @layerAnnouncementActiveFontColor: #7e9efd;
+
+  // 二维码弹出啊
+  @ewmBgColor: #20283b;
+
+  // 意见反馈
+  @feedbackBgColor: #20283b;
+  @feedbackTitleBgColor: #181e2f;
+  @feedbackTipsColor: #7889a9;
+  @feedbackTextFontColor: #24324c;
+  @feedbackTextBgColor: #181e2f;
+  @feedbackButtonBgColor: #7e9efd;
+
+  // 交易页面 仓位订单
+  @tradeListBlueFontColor: #7e9efd;
+  @tradeListTheadColor: #5d6588;
+  @tradeListFontColor: #24324c;
+  @tradeListBorderColor: #ecf0f7;
+  @tradeListHoverColor: #f3f7fe;
+  @tradeListButtonHoverColor: #f3f7fe;
+
+  // emerge 弹窗
+  @emergeBgColor: #697fd5;
+  @emergeGreen: #0ab480;
+  @emergeRed: #c12252;
+}
+//body {
+//  background: @indexBgColor;
+//}
+/* flex-grid */
+.flex(@val: 1) {
+  -webkit-box-flex: @val;
+  -moz-box-flex: @val;
+  -webkit-flex: @val;
+  -ms-flex: @val;
+  flex: @val;
+}
+.flex-box(@direction: row, @justifyContent: flex-start, @alignItem: flex-start, @flex-wrap: nowrap) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  .flex-direction(@direction);
+  .flex-justify(@justifyContent);
+  .align-items(@alignItem);
+  .flex-wrap(@flex-wrap);
+}
+.flex-direction(@direction: row) when(@direction = row) {
+  -web-kit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+}
+.flex-direction(@direction: row) when(@direction = column) {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+}
+.flex-direction(@direction) {
+  -webkit-flex-direction: @direction;
+  -ms-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.flex-justify(@jc: flex-start) when(@jc = flex-start) {
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -ms-box-pack: start;
+}
+.flex-justify(@jc: flex-start) when(@jc = flex-end) {
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -ms-box-pack: end;
+}
+.flex-justify(@jc: flex-start) when(@jc = center) {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+}
+.flex-justify(@jc: flex-start) when(@jc = space-between) {
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-box-pack: justify;
+}
+.flex-justify(@jc) {
+  -webkit-justify-content: @jc;
+  justify-content: @jc;
+}
+
+.align-items(@alignItem: flex-start) when(@alignItem = flex-start) {
+  -webkit-box-align: start;
+}
+.align-items(@alignItem: flex-start) when(@alignItem = flex-end) {
+  -webkit-box-align: end;
+}
+.align-items(@alignItem: flex-start) when(@alignItem = center) {
+  -webkit-box-align: center;
+}
+.align-items(@alignItem: flex-start) when(@alignItem = baseline) {
+  -webkit-box-align: baseline;
+}
+.align-items(@alignItem: flex-start) when(@alignItem = stretch) {
+  -webkit-box-align: stretch;
+}
+.align-items(@alignItem) {
+  -moz-align-items: @alignItem;
+  -webkit-align-items: @alignItem;
+  align-items: @alignItem;
+}
+.flex-wrap(@flex-wrap) {
+  -webkit-flex-wrap: @flex-wrap;
+  flex-wrap: @flex-wrap;
+}
+
+.flex-grow(@val: 1) {
+  -webkit-box-flex: @val+0.0;
+  -moz-flex-grow: @val;
+  -webkit-flex-grow: @val;
+  flex-grow: @val;
+}
+
+.flex-shrink(@val: 0) {
+  -webkit-box-flex: @val+0.0;
+  -moz-flex-shrink: @val+0.0;
+  -webkit-flex-shrink: @val+0.0;
+  flex-shrink: @val+0.0;
+}
+
+/* 圆角 */
+.border-radius(@radius: 3px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+/* placeholder */
+.placeholder(@rules) {
+  &::-webkit-input-placeholder {
+    @rules();
+  }
+  &:-moz-placeholder {
+    @rules();
+  }
+  &::-moz-placeholder {
+    @rules();
+  }
+  &:-ms-input-placeholder {
+    @rules();
+  }
+}
+
+/* 外阴影 */
+.border-shadow(@arguments) {
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+/* 动画 */
+.transition(@arguments) {
+  transition: @arguments;
+  -moz-transition: @arguments; /* Firefox 4 */
+  -webkit-transition: @arguments; /* Safari 和 Chrome */
+  -o-transition: @arguments; /* Opera */
+}
+
+/* 变化 */
+.transform(@params) {
+  transform: @params;
+  -ms-transform: @params; /* IE 9 */
+  -moz-transform: @params; /* Firefox */
+  -webkit-transform: @params; /* Safari 和 Chrome */
+  -o-transform: @params; /* Opera */
+}
+
+/* 表格 */
+.theme-1() {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  thead tr {
+    height: 50px;
+    background: #fafafb;
+    border-bottom: 2px solid #ededee;
+    th {
+      font-size: 12px;
+      font-weight: normal;
+      color: #888;
+    }
+  }
+  tbody {
+    tr {
+      height: 50px;
+      &:nth-child(2n) {
+        background: #fafafb;
+      }
+      td {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.theme-2() {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  thead tr {
+    height: 50px;
+    border-bottom: 1px solid @borderColor;
+    th {
+      font-size: 14px;
+      font-weight: normal;
+      color: #888;
+    }
+  }
+  tbody tr {
+    height: 60px;
+    border-bottom: 1px solid @borderColor;
+    td {
+      font-size: 14px;
+    }
+  }
+}
+.no-list () {
+  .no-list {
+    margin-top: 100px;
+    img {
+      margin: 0 auto;
+      width: 32px;
+    }
+    h6 {
+      height: 34px;
+      line-height: 34px;
+      font-size: 14px;
+      color: #999;
+      text-align: center;
+    }
+  }
+}
+
+.scroll-bar {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 transparent;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: transparent;
+    -webkit-box-shadow: inset 0 0 0 transparent;
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: transparent;
+  }
+}
+
+/*chrome独有*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  //===滚动条===
+  // 右上角占位
+  .f-table__fixed-right-patch {
+    width: 6px !important;
+  }
+  .el-table__fixed-right {
+    bottom: 6px !important;
+  }
+  // 当出现竖向滚动条时，更改fix右边距
+  .fixed-right {
+    .el-table__fixed-right {
+      right: 6px !important;
+    }
+  }
+  .el-table__body {
+    width: 100% !important;
+  }
+}
+// 横向滚动条置底
+.el-table-content {
+  height: 100%;
+  // 将滚动条置底
+  .el-table__body-wrapper {
+    height: 100%;
+  }
+}
+.table-view {
+  height: 100%;
+  .table-wrapper {
+    height: 100%;
+  }
+}
+/*=====Element Table*/
+.el-table-content {
+  background-color: #121723;
+  // 兼容布局
+  &::before {
+    height: 0;
+  }
+  .el-table__fixed-right::before {
+    height: 0;
+  }
+  .el-table__fixed::before {
+    height: 0;
+  }
+  // 单边投影
+  .el-table__fixed-right {
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.12);
+  }
+  // 表格UI
+  th,
+  td {
+    line-height: 32px;
+    padding: 0 4px !important;
+    background-color: #121723;
+    border-bottom: 1px solid #181e2f !important;
+    .cell {
+      padding: 0;
+      line-height: 32px;
+      color: #5d6588 !important;
+      font-weight: 400;
+      font-size: 12px;
+      white-space: nowrap;
+      span {
+        color: #cbd7f0;
+        font-size: 12px;
+      }
+      .cancel-button {
+        cursor: pointer;
+        color: #7e9efd;
+        &:hover {
+          color: #666b93;
+        }
+      }
+      .button11 {
+        color: #7e9efd;
+        background-color: transparent;
+        border: 1px solid transparent;
+        cursor: pointer;
+        &:hover {
+          display: inline-block;
+          // width:30px;
+          padding: 0 4px;
+          border: 1px solid transparent;
+          border-radius: 2px;
+          background-color: #38446a;
+        }
+      }
+      .detail-position {
+        .button {
+          display: inline-block;
+          // width: 56px;
+          padding: 0 4px;
+          height: 22px;
+          line-height: 22px;
+          font-size: 12px;
+          color: #7e9efd;
+          text-align: center;
+          background-color: transparent;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          &:last-child {
+            // margin-left: 8px;
+          }
+          &:hover {
+            background-color: #38446a;
+          }
+        }
+      }
+      .detail-position-white {
+        .button {
+          display: inline-block;
+          // width: 56px;
+          padding: 0 4px;
+          height: 22px;
+          line-height: 22px;
+          font-size: 12px;
+          color: #597ab9;
+          text-align: center;
+          background-color: transparent;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          &:last-child {
+            // margin-left: 8px;
+          }
+          &:hover {
+            color: #fff;
+            background-color: #597ab9;
+          }
+        }
+      }
+    }
+    &:first-child {
+      padding-left: 10px !important;
+    }
+  }
+  .hover-row {
+    > td {
+      background-color: #181e2f !important;
+    }
+  }
+  .el-table__row:hover td {
+    background-color: #181e2f !important;
+  }
+  // 右上角占位块
+  .el-table__fixed-right-patch {
+    background-color: #121723;
+    border-bottom: 1px solid #212340;
+  }
+  //===Chrome滚动条===
+  ::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+    bottom: 0 !important;
+  }
+  // 滚动条轨道
+  ::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #181e2f;
+  }
+  // 滚动条上的滚动滑块
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    // background: rgb(59, 59, 99);
+    background: #262e43;
+  }
+  // 当同时有垂直滚动条和水平滚动条时交汇的部分
+  ::-webkit-scrollbar-corner {
+    background-color: rgb(29, 31, 53);
+  }
+  // 浏览器失去焦点
+  ::-webkit-scrollbar-thumb:window-inactive {
+    opacity: 0.3;
+    background: rgb(59, 59, 99);
+  }
+}
+// 白版只写颜色属性，布局属性放在黑板！！！！
+.trade-index-white {
+  .el-table-content {
+    background-color: #fff;
+    th,
+    td {
+      background-color: #fff;
+      border-bottom: 1px solid #ecf0f7 !important;
+      .cell {
+        color: #5d6588 !important;
+        font-weight: normal;
+        span {
+          color: #24324c;
+        }
+        .cancel-button {
+          color: #7e9efd;
+          &:hover {
+            background-color: #597ab9;
+            color: #fff;
+          }
+        }
+        .button11 {
+          color: #597ab9;
+          background-color: transparent;
+          border: 1px solid transparent;
+          cursor: pointer;
+          &:hover {
+            color: #fff !important;
+            display: inline-block;
+            width: 30px;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            background-color: #597ab9;
+          }
+        }
+        .detail-position {
+          .button {
+            color: #7e9efd;
+            background-color: transparent;
+            border: 1px solid transparent;
+            &:hover {
+              background-color: #38446a;
+            }
+          }
+        }
+      }
+    }
+    .hover-row {
+      > td {
+        background-color: #f3f7fe !important;
+      }
+    }
+    .el-table__row:hover td {
+      background-color: #f3f7fe !important;
+    }
+    .el-table__fixed-right-patch {
+      background-color: #fff;
+      border-bottom: 1px solid #ecf0f7;
+    }
+    //::-webkit-scrollbar — 整个滚动条.
+    //::-webkit-scrollbar-button — 滚动条上的按钮 (上下箭头).
+    //::-webkit-scrollbar-thumb — 滚动条上的滚动滑块.
+    //::-webkit-scrollbar-track — 滚动条轨道.
+    //::-webkit-scrollbar-track-piece — 滚动条没有滑块的轨道部分.
+    //::-webkit-scrollbar-corner — 当同时有垂直滚动条和水平滚动条时交汇的部分.
+    //::-webkit-resizer — 某些元素的corner部分的部分样式(例:textarea的可拖动按钮).
+    // 滚动条轨道
+    ::-webkit-scrollbar-track {
+      background: rgb(255, 255, 255);
+    }
+    // 滚动条上的滚动滑块
+    ::-webkit-scrollbar-thumb {
+      background: rgb(222, 230, 243);
+    }
+    // 当同时有垂直滚动条和水平滚动条时交汇的部分
+    ::-webkit-scrollbar-corner {
+      background-color: rgb(255, 255, 255);
+    }
+    // 浏览器失去焦点
+    ::-webkit-scrollbar-thumb:window-inactive {
+      opacity: 0.3;
+      background: rgb(222, 230, 243);
+    }
+  }
+}
+/*=====Element Table*/
+
+.triangle-down (@color) {
+  // width: 0;
+  // height: 0;
+  // overflow: hidden;
+  // font-size: 0;
+  // line-height: 0;
+  // border-width: 6px;
+  // border-style: solid dashed dashed dashed;
+  // border-color: @color transparent transparent transparent;
+  // transition: all .5s;
+  // transform-origin: 50% 25%;
+  // position: relative;
+  // top: 2px;
+  // transition: all .4s;
+  // 和永续合约一样的三角
+  width: 10px;
+  height: 6px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 50% 25%;
+  transform-origin: 50% 25%;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  margin-left: 4px;
+  margin-top: 4px;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIyLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IuWbvuWxgl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMTAgNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTAgNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMzRjQ2NjM7fQo8L3N0eWxlPgo8dGl0bGU+5LiJ6KeS5b2iPC90aXRsZT4KPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CjxnIGlkPSLkuInop5LlvaIiPgoJPHBhdGggaWQ9IlRyaWFuZ2xlLTIiIGNsYXNzPSJzdDAiIGQ9Ik00LjMsNS43bC00LTRjLTAuNC0wLjQtMC40LTEsMC0xLjRDMC41LDAuMSwwLjcsMCwxLDBoOGMwLjYsMCwxLDAuNCwxLDEKCQljMCwwLjMtMC4xLDAuNS0wLjMsMC43bC00LDRDNS4zLDYuMSw0LjcsNi4xLDQuMyw1LjdMNC4zLDUuN3oiLz4KPC9nPgo8L3N2Zz4K)
+    no-repeat;
+}
+.triangle-up (@color) {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  border-width: 6px;
+  border-style: dashed dashed solid dashed;
+  border-color: transparent transparent @color transparent;
+  transition: all 0.5s;
+  transform-origin: 50% 75%;
+  position: relative;
+  bottom: 2px;
+  transition: all 0.4s;
+}
+.dis-selected {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// 一键平仓 ？浮层
+.hand-popover {
+  margin-bottom: 2px !important;
+}
+.tooltip-content {
+  font-family: PingFangSC-Regular !important;
+  width: 188px !important;
+  background: #20283b !important;
+  // box-shadow: 0 10px 10px 0 rgba(21,22,39,0.40) !important;
+  font-size: 12px !important;
+  color: #cbd7f0 !important;
+  letter-spacing: 0 !important;
+  line-height: 18px !important;
+  border: none !important;
+  word-break: break-all;
+}
+.el-popover--plain {
+  padding: 10px;
+}
+.tooltip-content .popper__arrow::after {
+  border-top-color: #20283b !important;
+  border-bottom-color: #20283b !important;
+}
+.tooltip-content .popper__arrow {
+  border-top-color: #20283b !important;
+  border-bottom-color: #20283b !important;
+}
+// top-end箭头偏移问题 start
+.tooltip-content.top-end-arrow .popper__arrow {
+  margin-left: 10px;
+}
+// 手 top-end箭头偏移问题 start
+.tooltip-content.hand-popover .popper__arrow {
+  margin-left: 27px;
+}
+
+// 表格筛选
+.black .el-table-filter[x-placement='top-start'] {
+  &::before {
+    content: '';
+    left: 49px;
+    top: 100%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    border-width: 5px;
+    border-style: solid dashed dashed dashed;
+    border-color: #20283b transparent transparent transparent;
+  }
+}
+.black .el-table-filter {
+  &::before {
+    content: '';
+    left: 49px;
+    bottom: 100%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    border-width: 5px;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #20283b transparent;
+  }
+  width: 152px;
+  background: #20283b;
+  box-shadow: 0 10px 10px 0 rgba(21, 22, 39, 0.4);
+  border-radius: 4px;
+  border: none;
+  margin-left: -50px;
+  .el-checkbox-group {
+    padding: 10px 0 10px 20px;
+    .el-checkbox {
+      width: 50%;
+      float: left;
+      margin: 0;
+      margin-bottom: 12px;
+      font-size: 12px;
+      height: 12px;
+      .el-checkbox__input {
+        .el-checkbox__inner {
+          width: 12px;
+          height: 12px;
+          border: 1px solid #5d6588;
+          border-radius: 2px;
+          background: none;
+        }
+      }
+      .el-checkbox__input.is-checked {
+        .el-checkbox__inner {
+          background: #7e9efd;
+          border: none;
+        }
+        .el-checkbox__inner::after {
+          height: 7px;
+          width: 3px;
+          left: 4px;
+          border-color: #121723;
+        }
+      }
+      .el-checkbox__label {
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #cbd7f0;
+        letter-spacing: 0;
+        line-height: 12px;
+      }
+    }
+  }
+  .el-table-filter__bottom {
+    border: none;
+    padding: 0;
+    padding-bottom: 20px;
+    text-align: right;
+    padding-right: 15px;
+    button {
+      background: 0 0;
+      border: 1px solid #7e9efd;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-family: PingFangSC-Regular;
+      color: #7e9efd;
+      letter-spacing: 0;
+      line-height: 12px;
+      margin: 10px 5px 0;
+      font-size: 12px;
+    }
+    // button.is-disabled{
+    //   background: #7E9EFD;
+    //   color: #fff;
+    // }
+    button:hover {
+      background: #7e9efd;
+      color: #fff;
+    }
+  }
+}
+.white .el-table-filter[x-placement='top-start'] {
+  &::before {
+    content: '';
+    left: 49px;
+    top: 100%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    border-width: 5px;
+    border-style: solid dashed dashed dashed;
+    border-color: #fff transparent transparent transparent;
+  }
+}
+.white .el-table-filter {
+  &::before {
+    content: '';
+    left: 49px;
+    bottom: 100%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    border-width: 5px;
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent #fff transparent;
+  }
+  width: 152px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px 0 rgba(89, 122, 185, 0.15);
+  border-radius: 4px;
+  border: none;
+  margin-left: -50px;
+  .el-checkbox-group {
+    padding: 10px 0 10px 20px;
+    .el-checkbox {
+      width: 50%;
+      float: left;
+      margin: 0;
+      margin-bottom: 12px;
+      font-size: 12px;
+      height: 12px;
+      .el-checkbox__input {
+        .el-checkbox__inner {
+          width: 12px;
+          height: 12px;
+          border: 1px solid #597ab9;
+          border-radius: 2px;
+          background: none;
+        }
+      }
+      .el-checkbox__input.is-checked {
+        .el-checkbox__inner {
+          background: #7e9efd;
+          border: none;
+        }
+        .el-checkbox__inner::after {
+          height: 7px;
+          width: 3px;
+          left: 4px;
+          // border-color: #121723 ;
+        }
+      }
+      .el-checkbox__label {
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #7889a9;
+        letter-spacing: 0;
+        line-height: 12px;
+      }
+    }
+  }
+  .el-table-filter__bottom {
+    border: none;
+    padding: 0;
+    padding-bottom: 20px;
+    text-align: right;
+    padding-right: 15px;
+    button {
+      background: 0 0;
+      border: 1px solid #7e9efd;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-family: PingFangSC-Regular;
+      color: #7e9efd;
+      letter-spacing: 0;
+      line-height: 12px;
+      margin: 10px 5px 0;
+      font-size: 12px;
+    }
+    // button.is-disabled{
+    //   background: #7E9EFD;
+    //   color: #fff;
+    // }
+    button:hover {
+      background: #7e9efd;
+      color: #fff;
+    }
+  }
+}
+
+/* 筛选样式 两列 */
+.black {
+  .pop-filters {
+    width: 162px !important;
+    padding: 20px;
+    margin-left: -3px;
+    .popper__arrow {
+      margin-left: 15px;
+    }
+  }
+  .input-labels {
+    width: 50%;
+    display: inline-block;
+    margin-bottom: 8px;
+    height: 16px;
+  }
+  .pop-filters .input-labels .span-label {
+    display: inline-block;
+    margin-left: 12px;
+    position: relative;
+    line-height: 12px;
+    font-size: 12px;
+    padding-left: 4px;
+    font-family: PingFangSC-Regular;
+    color: #cbd7f0;
+    letter-spacing: 0;
+  }
+  .span-label::before {
+    content: '';
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right: 100%;
+    border: 1px solid #5d6588;
+    border-radius: 2px;
+  }
+  .ischeckeds::before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 100%;
+    border: none;
+    border-radius: 2px;
+    background: #7e9efd;
+  }
+  .ischeckeds::after {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 6px;
+    position: absolute;
+    left: -8px;
+    border: 1px solid #121723;
+    border-left: 0;
+    transform: rotate(45deg);
+    border-top: 0;
+    top: 1.5px;
+  }
+  .filter-footer {
+    margin-top: 8px;
+    text-align: right;
+    box-sizing: border-box;
+    .button {
+      background: none;
+      border: none;
+      padding: 3px 8px;
+    }
+    .chongzhi-button {
+      border: 1px solid #7e9efd;
+      border-radius: 3px;
+      color: #7e9efd;
+      margin-right: 6px;
+    }
+    .queding-button {
+      background: #7e9efd;
+      border-radius: 3px;
+      color: #fff;
+    }
+    .button:hover {
+      cursor: pointer;
+    }
+  }
+}
+.white {
+  .pop-filters {
+    width: 162px !important;
+    padding: 20px;
+    margin-left: -3px;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px 0 rgba(89, 122, 185, 0.15) !important;
+    .popper__arrow {
+      margin-left: 15px;
+      border-top-color: #ffffff !important;
+      border-bottom-color: #ffffff !important;
+      &::after {
+        border-top-color: #ffffff !important;
+        border-bottom-color: #ffffff !important;
+      }
+    }
+  }
+  .input-labels {
+    width: 50%;
+    display: inline-block;
+    margin-bottom: 8px;
+    height: 16px;
+  }
+  .pop-filters .input-labels .span-label {
+    display: inline-block;
+    margin-left: 12px;
+    position: relative;
+    line-height: 12px;
+    font-size: 12px;
+    padding-left: 4px;
+    font-family: PingFangSC-Regular;
+    color: #7889a9;
+    letter-spacing: 0;
+  }
+  .span-label::before {
+    content: '';
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right: 100%;
+    border: 1px solid #597ab9;
+    border-radius: 2px;
+  }
+  .ischeckeds::before {
+    content: '';
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 100%;
+    border: none;
+    border-radius: 2px;
+    background: #597ab9;
+  }
+  .ischeckeds::after {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 6px;
+    position: absolute;
+    left: -8px;
+    border: 1px solid #fff;
+    border-left: 0;
+    transform: rotate(45deg);
+    border-top: 0;
+    top: 1.5px;
+  }
+  .filter-footer {
+    margin-top: 8px;
+    text-align: right;
+    box-sizing: border-box;
+    .button {
+      background: none;
+      border: none;
+      padding: 3px 8px;
+    }
+    .chongzhi-button {
+      border: 1px solid #597ab9;
+      border-radius: 3px;
+      color: #597ab9;
+      margin-right: 6px;
+    }
+    .queding-button {
+      background: #597ab9;
+      border-radius: 3px;
+      color: #fff;
+    }
+    .button:hover {
+      cursor: pointer;
+    }
+  }
+}
+/* 筛选框四列 */
+.black {
+  .four-column {
+    width: 271px !important;
+    padding: 20px 20px 16px;
+    margin-left: -3px;
+    .popper__arrow {
+      margin-left: 15px;
+    }
+    .many-empty {
+      border-bottom: 1px solid #394259;
+    }
+  }
+  .labels-input {
+    width: 25%;
+    display: inline-block;
+    margin-bottom: 8px;
+    height: 16px;
+  }
+  .currency-list {
+    .labels-input:nth-child(1) {
+      width: 100% !important;
+    }
+  }
+}
+.white {
+  .four-column {
+    width: 271px !important;
+    padding: 20px 20px 16px;
+    margin-left: -3px;
+    .popper__arrow {
+      margin-left: 15px;
+    }
+    .many-empty {
+      border-bottom: 1px solid #ecf0f7;
+    }
+  }
+  .labels-input {
+    width: 25%;
+    display: inline-block;
+    margin-bottom: 8px;
+    height: 16px;
+  }
+  .currency-list {
+    .labels-input:nth-child(1) {
+      width: 100% !important;
+    }
+  }
+}
