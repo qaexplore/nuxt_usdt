@@ -127,16 +127,16 @@ class Socket {
   // 成交历史
   tradeHistory(data) {
     //console.log(data)
-    store.commit('SET_HISTORYLIST', data.data)
+    store.commit('market/SET_HISTORYLIST', data.data)
   }
   // 最新价
   tickerCallBack(data) {
     //console.log(data)
-    store.commit('SET_TICKERS', data.data)
+    store.commit('market/SET_TICKERS', data.data)
   }
   // 委托成功推送
   orderCallBack(data) {
-    store.commit('SET_WS_ORDER', data.data)
+    store.commit('market/SET_WS_ORDER', data.data)
   }
   // 暂时没用
   positionCallBack(data) {
@@ -145,7 +145,7 @@ class Socket {
   // 市场信息（指数价等）
   marketCallBack(data) {
     data.data.contractId = data.product
-    store.commit('SET_MARKET', data.data)
+    store.commit('market/SET_MARKET', data.data)
   }
   // 获取全部指数
   allIndexPrice(data) {
@@ -156,7 +156,7 @@ class Socket {
       data_obj.indexPrice = data_obj.price;
       obj[k] = data_obj;
     }
-    store.commit('SET_MARKET_ALL', obj);
+    store.commit('market/SET_MARKET_ALL', obj);
   }
 }
 

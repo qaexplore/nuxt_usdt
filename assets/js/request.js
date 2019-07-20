@@ -30,7 +30,7 @@ class WsRq {
     SwapsApi.getTickerAll(cancel ? this.source.token : '').then((res) => {
       let arr = res.data.ticker || []
       arr.forEach((item) => {
-        this.store.commit('SET_TICKERS', item)
+        this.store.commit('market/SET_TICKERS', item)
       })
     }).catch(err => {
 

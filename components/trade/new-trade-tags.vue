@@ -57,9 +57,9 @@
             this.isSpread = false
           }
           if ( this.screenHeight <= 760 || this.screenWidth <= 1366 ) {
-            this.$store.commit('SET_BOXHEIGHT', 718)
+            this.$store.commit('dictionary/SET_BOXHEIGHT', 718)
           } else {
-            this.$store.commit('SET_BOXHEIGHT', 850)
+            this.$store.commit('dictionary/SET_BOXHEIGHT', 850)
           }
         },
         immediate: true
@@ -67,9 +67,9 @@
       '$store.state.dictionary.screenHeight': {
         handler (val) {
           if ( this.screenHeight <= 760 || this.screenWidth <= 1366 ) {
-            this.$store.commit('SET_BOXHEIGHT', 718)
+            this.$store.commit('dictionary/SET_BOXHEIGHT', 718)
           } else {
-            this.$store.commit('SET_BOXHEIGHT', 850)
+            this.$store.commit('dictionary/SET_BOXHEIGHT', 850)
           }
         },
         immediate: true
@@ -96,9 +96,9 @@
       isSpread: {
         handler (val) {
           if (val) {
-            this.$store.commit('SET_BOXWIDTH', 50)
+            this.$store.commit('dictionary/SET_BOXWIDTH', 50)
           } else {
-            this.$store.commit('SET_BOXWIDTH', 170)
+            this.$store.commit('dictionary/SET_BOXWIDTH', 170)
           }
         },
         immediate: true
