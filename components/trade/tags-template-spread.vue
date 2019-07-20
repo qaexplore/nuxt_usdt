@@ -44,13 +44,13 @@
       // 位数要求
       figure () {
         let tmp = this.$store.state.market.contract.filter(item => {
-          return item.id.toString() === this.contractInfo.id.toString()
+          return Number(item.id) === Number(this.contractInfo.id)
         })
         return tmp[0] && tmp[0].contractParam
       },
       // 是否是选中
       active () {
-        if (this.routeId.toString() === this.contractInfo.id.toString() ) {
+        if (Number(this.routeId) === Number(this.contractInfo.id)) {
           return true
         } else {
           return false

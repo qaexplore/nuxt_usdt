@@ -56,6 +56,8 @@ export default {
       src: '~/plugins/dictionary'
     }, {
       src: '~/plugins/filter'
+    }, {
+      src: '~/plugins/getcarrucy'
     }
   ],
   router: {

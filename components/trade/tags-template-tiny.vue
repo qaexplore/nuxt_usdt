@@ -23,7 +23,7 @@
     computed: {
       // 是否是选中
       active () {
-        if (this.$route.params.id.toString() === this.contractInfo.id.toString() ) {
+        if (Number(this.$route.params.id) === Number(this.contractInfo.id)) {
           return true
         } else {
           return false
