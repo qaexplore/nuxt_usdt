@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-
-Vue.use(VueI18n)
-
+import Dictionary from '@/assets/js/dictionary'
+import LangConfig from '@/locales/config'
 import StCN from '@/locales/lang/cn'
 import StEN from '@/locales/lang/en'
 import StKO from '@/locales/lang/ko'
@@ -60,17 +59,12 @@ const messages = {
     ...ruLocale
   }
 }
-
-export default ({
-  app,
-  store
-}) => {
-  // Set i18n instance on app
-  // This way we can use it in middleware and pages asyncData/fetch
-  app.i18n = new VueI18n({
-    locale: store.state.locale,
-    fallbackLocale: app.$cookies.get('locale') || 'cn',
-    messages: messages
-  })
-
+const hasLanguage = function (lang, obj) {
+  let localeList = Object.keys(obj)
+  return localeList.some(item => item === lang) ? lang : 'en'
 }
+const i18n = new VueI18n({
+  locale: hasLanguage(LangConfig.getLang(), messages), // 语言标识
+  messages
+})
+Vue.use(Dictionary, i18n)

@@ -52,6 +52,8 @@ export default {
       src: '~/plugins/strow'
     }, {
       src: '~/plugins/language'
+    }, {
+      src: '~/plugins/dictionary'
     }
   ],
   router: {
@@ -60,7 +62,9 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    'cookie-universal-nuxt',
+  ],
   /*
    ** Build configuration
    */
