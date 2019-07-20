@@ -64,6 +64,9 @@ export default {
    */
   modules: [
     'cookie-universal-nuxt',
+    ['@nuxtjs/router', {
+      keepDefaultRouter: true
+    }]
   ],
   /*
    ** Build configuration
