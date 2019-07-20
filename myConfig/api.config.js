@@ -6,54 +6,54 @@ export default {
   appDomain: '58ex',
   // href domain
   // 58coin
-  mainDomain: `http://www.test.${domain}/`,
+  mainDomain: `https://www.${domain}/`,
   // footer
-  footerDomain: `http://footer.test.${domain}/`,
+  footerDomain: `https://footer.${domain}/`,
   // m站
-  mDomain: `http://m.test.${domain}/`,
+  mDomain: `https://m.${domain}/`,
   // account 
-  userDomain: `http://user.test.${domain}/`,
+  userDomain: `https://user.${domain}/`,
   // spot
-  spotDomain: `http://spot.test.${domain}/`,
+  spotDomain: `https://spot.${domain}/`,
   // hash
-  hashDomain: `http://hash.test.${domain}/`,
+  hashDomain: `https://hash.${domain}/`,
   // otc
-  otcDomain: `http://c2c.test.${domain}/`,
+  otcDomain: `https://c2c.${domain}/`,
   // swaps
-  swapsDomain: `http://swap.test.${domain}/`,
+  swapsDomain: `https://swap.${domain}/`,
   // labs
-  labsDomain: `http://margin.test.${domain}/`,
+  labsDomain: `https://margin.${domain}/`,
   // loan
-  loanDomain: `http://mortgageloan.test.${domain}/`,
+  loanDomain: `https://mortgageloan.${domain}/`,
   // usdt
-  usdtDomain: `http://usdtfuture.test.${domain}/`,
-  futureDomain: `http://usdtfuture.test.${domain}/`,
+  usdtDomain: `https://usdtfuture.${domain}/`,
+  futureDomain: `https://usdtfuture.${domain}/`,
   // regular
-  regularDomain: `http://regularfuture.test.${domain}/`,
+  regularDomain: `https://regularfuture.${domain}/`,
   // 算力
-  powerDomain: `http://hashrate.test.${domain}/`,
+  powerDomain: `https://hashrate.${domain}/`,
   // margin
-  marginDomain: `http://margin.test.${domain}/`,
+  marginDomain: `https://margin.${domain}/`,
   // oldswaps
-  oldswapsDomain: `http://oldswap.test.${domain}/`,
+  oldswapsDomain: `https://oldswap.${domain}/`,
   //wap
-  wapDomain: `http://wap.test.${domain}/`,
+  wapDomain: `https://wap.${domain}/`,
   // api
-  baseURL: `http://api.test.${domain}/`, // 58coin 58spot
-  agentURL: `http://agentapi.test.${domain}/`, //agent
-  hashURL: `http://hashapi.test.${domain}/`, // hash
-  otcURL: `http://c2capi.test.${domain}`, // otc
-  webSocketURL: `ws://ws.test.${domain}/websocket`, // webSocket
-  otcSocketURL: `ws://ws1.test.${domain}/websocket`, // otcWS
-  zendeskURL: `http://58coin-support.zendesk.com/`, // zendesk
-  oosImgUrl: `http://tianbi-test.oss-cn-beijing.aliyuncs.com/`, // 阿里云
-  futureURL: `http://usdtfuture.test.${domain}/usdt/`, // usdt
-  regularURL: `http://rusdtfuture.test.${domain}/rusdt/`, // regular
-  swapsURL: `http://swapapi.test.${domain}/`, // 58swaps
-  serviceURL: `http://serviceapi.test.${domain}/`, // ossweb
-  downURL: `http://wap.test.${domain}/`, // download
-  showURL: `http://oss.test.${domain}/`,
-  powerURL: `http://hashrateapi.test.${domain}/`, // 算力
-  url: `http://api.test.${domain}/`,
-  loanURL: `http://mortgageloanapi.test.${domain}/`, // mortgageloan
+  baseURL: `https://api.${domain}/`, // 58coin 58spot
+  agentURL: `https://agentapi.${domain}/`, //agent
+  hashURL: `https://hashapi.${domain}/`, // hash
+  otcURL: `https://c2capi.${domain}`, // otc
+  webSocketURL: `ws://ws.${domain}/websocket`, // webSocket
+  otcSocketURL: `ws://ws1.${domain}/websocket`, // otcWS
+  zendeskURL: `https://58coin-support.zendesk.com/`, // zendesk
+  oosImgUrl: `https://tianbi-test.oss-cn-beijing.aliyuncs.com/`, // 阿里云
+  futureURL: `https://usdtfuture.${domain}/usdt/`, // usdt
+  regularURL: `https://rusdtfuture.${domain}/rusdt/`, // regular
+  swapsURL: `https://swapapi.${domain}/`, // 58swaps
+  serviceURL: `https://serviceapi.${domain}/`, // ossweb
+  downURL: `https://wap.${domain}/`, // download
+  showURL: `https://oss.${domain}/`,
+  powerURL: `https://hashrateapi.${domain}/`, // 算力
+  url: `https://api.${domain}/`,
+  loanURL: `https://mortgageloanapi.${domain}/`, // mortgageloan
 }

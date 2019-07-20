@@ -1,8 +1,6 @@
-import store from '@/store/index'
 import Utils from './utils'
-import Router from "../../router/index";
 class Socket {
-  constructor (url) {
+  constructor(url, store, route) {
     this.url = url
     this.ws = {}
     this.reConnectTimer = null
@@ -10,10 +8,14 @@ class Socket {
     this.timer = null
     this.closeTimer = null
     this.dataId = null
+    this.store = store
+    this.route = route
   }
   // 连接
-  connection () {
-    window.ws = this.ws = new WebSocket(this.url)
+  connection() {
+    if (process.client) {
+      window.ws = this.ws = new WebSocket(this.url)
+    }
     this.ws.onopen = () => {
       this.check()
       store.commit('SET_FIRSTORDER', true)
@@ -36,7 +38,7 @@ class Socket {
     }
   }
   // 重连
-  reConnection () {
+  reConnection() {
     clearTimeout(this.reConnectTimer);
     this.count += 1
     if (this.ws.readyState == 1) {
@@ -51,7 +53,7 @@ class Socket {
     }
   }
   // 心跳检查
-  check () {
+  check() {
     this.ws.send("{'event':'ping'}")
     clearTimeout(this.closeTimer)
     this.closeTimer = setTimeout(() => {
@@ -63,46 +65,54 @@ class Socket {
     }, 30000)
   }
   // 关闭定时器
-  closeCheck () {
+  closeCheck() {
     clearTimeout(this.timer)
     clearTimeout(this.closeTimer)
   }
   // 接收ping返回信息
-  onPong (data) {
+  onPong(data) {
     data.event === 'pong' && clearTimeout(this.closeTimer)
   }
   // 数据处理
-  transData (data) {
+  transData(data) {
     // console.log('wss',data)
     let that = this
     Utils.transData(data, function (data) {
       that.onPong(data)
       switch (data.type) {
-        case 'BAR_DATA': that.klineCallBack(data)
+        case 'BAR_DATA':
+          that.klineCallBack(data)
           break
-        case 'ORDER_BOOK': that.orderBookCallBack(data)
+        case 'ORDER_BOOK':
+          that.orderBookCallBack(data)
           break
-        case 'TRADE_HISTORY': that.tradeHistory(data)
+        case 'TRADE_HISTORY':
+          that.tradeHistory(data)
           break
-        case 'TICKER': that.tickerCallBack(data)
+        case 'TICKER':
+          that.tickerCallBack(data)
           break
-        case 'FUTURE_ORDER': that.orderCallBack(data)
+        case 'FUTURE_ORDER':
+          that.orderCallBack(data)
           break
-        case 'FUTURE_POSITION': that.positionCallBack(data)
+        case 'FUTURE_POSITION':
+          that.positionCallBack(data)
           break
-        case 'FUTURE_MARKET': that.marketCallBack(data)
+        case 'FUTURE_MARKET':
+          that.marketCallBack(data)
           break
-        case 'ALL_INDEX_PRICE' : that.allIndexPrice(data)
+        case 'ALL_INDEX_PRICE':
+          that.allIndexPrice(data)
       }
     })
   }
   // k线
-  klineCallBack (data) {
+  klineCallBack(data) {
     //console.log(data)
     window.refresh && window.refresh(data.data)
   }
   // 深度
-  orderBookCallBack (data) {
+  orderBookCallBack(data) {
     // console.log(data)
     let productId = Router.app.$route.params.id;
     if (data.product !== productId) return;
@@ -115,33 +125,33 @@ class Socket {
     Object.keys(data.data).length > 0 && store.dispatch('saveOrder', data)
   }
   // 成交历史
-  tradeHistory (data) {
+  tradeHistory(data) {
     //console.log(data)
     store.commit('SET_HISTORYLIST', data.data)
   }
   // 最新价
-  tickerCallBack (data) {
+  tickerCallBack(data) {
     //console.log(data)
     store.commit('SET_TICKERS', data.data)
   }
   // 委托成功推送
-  orderCallBack (data) {
+  orderCallBack(data) {
     store.commit('SET_WS_ORDER', data.data)
   }
   // 暂时没用
-  positionCallBack (data) {
+  positionCallBack(data) {
     // console.log(data)
   }
   // 市场信息（指数价等）
-  marketCallBack (data) {
+  marketCallBack(data) {
     data.data.contractId = data.product
     store.commit('SET_MARKET', data.data)
   }
   // 获取全部指数
-  allIndexPrice (data) {
+  allIndexPrice(data) {
     let datas = data.data;
     let obj = {};
-    for(let k in datas) {
+    for (let k in datas) {
       let data_obj = JSON.parse(datas[k]);
       data_obj.indexPrice = data_obj.price;
       obj[k] = data_obj;

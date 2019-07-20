@@ -1,10 +1,9 @@
 import Cookie from '@/assets/js/config/cookie'
-import store from '@/store/index'
 class Sub {
-  constructor (contract) {
+  constructor(contract, store) {
+    this.store = store
     // 需要订阅的信息列表
-    this.subDatas = [
-      {
+    this.subDatas = [{
         type: 'BAR_DATA',
         params: {
           key: 'period',
@@ -53,31 +52,31 @@ class Sub {
     ]
   }
   // 获取k线时间
-  getKtime () {
-    return store.state.market.kTime
+  getKtime() {
+    return this.store.state.market.kTime
   }
   // 取消订阅k线
-  cancelK (product) {
+  cancelK(product) {
     let val = `{'event':'CANCEL','type':'BAR_DATA','product':'${product}','params':{'period':'${this.getKtime()}'}}`
     window.ws.send(val)
   }
   // 重新订阅k线
-  subK (product) {
+  subK(product) {
     let val = `{'event':'SUB','type':'BAR_DATA','product':'${product}','params':{'period':'${this.getKtime()}'}}`
     window.ws.send(val)
   }
   // 取消订阅orderBook 
-  cancelOrderBook (product) {
+  cancelOrderBook(product) {
     let val = `{'event':'CANCEL','type':'ORDER_BOOK','product':'${product}'}`
     window.ws.send(val)
   }
   // 重新订阅orderBook 
-  subOrderBook (product) {
+  subOrderBook(product) {
     let val = `{'event':'SUB','type':'ORDER_BOOK','product':'${product}'}`
     window.ws.send(val)
   }
   // 订阅列表信息
-  subAll (product) {
+  subAll(product) {
     this.subDatas.map(item => {
       if (item.list) {
         item.list.forEach(data => {
@@ -95,7 +94,7 @@ class Sub {
       }
     })
   }
-  
+
 }
 
 export default Sub
