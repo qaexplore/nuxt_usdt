@@ -58,6 +58,8 @@ export default {
       src: '~/plugins/filter'
     }, {
       src: '~/plugins/getcarrucy'
+    }, {
+      src: '~/plugins/scrollbar'
     }
   ],
   router: {
