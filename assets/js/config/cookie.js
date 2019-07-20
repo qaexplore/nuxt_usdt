@@ -1,2 +1,2 @@
-import Cookie from '../../../../myConfig/cookie'
+import Cookie from '~/myConfig/cookie'
 export default Cookie

@@ -1,2 +1,2 @@
-import apiConfig from '../../../../myConfig/api.config'
+import apiConfig from '~/myConfig/api.config'
 export default apiConfig
