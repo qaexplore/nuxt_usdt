@@ -1,5 +1,5 @@
 const state = () => ({
-  locales: ['cn', 'en'],
+  locales: ['cn', 'en', 'ja', 'ko', 'ru'],
   locale: 'cn',
   domain: null
 })
