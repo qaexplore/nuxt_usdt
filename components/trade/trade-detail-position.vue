@@ -888,11 +888,14 @@ export default {
       this.saveItem();
     },
     saveItem() {
-      this.$store.commit("SET_CURRENTPOSITION", this.listData[this.current]);
+      this.$store.commit(
+        "market/SET_CURRENTPOSITION",
+        this.listData[this.current]
+      );
     }
   },
   destroyed() {
-    this.$store.commit("SET_CURRENTPOSITION", {});
+    this.$store.commit("market/SET_CURRENTPOSITION", {});
     clearInterval(this.timer);
   }
 };

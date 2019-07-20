@@ -26,6 +26,20 @@
       <toolbar></toolbar>
       <toast2 v-show="showToast" :message="toastMessage"></toast2>
     </st-row>
+    <!-- footer -->
+    <div id="parent-footer">
+      <iframe
+        style="position:absolute;min-width:1366px;"
+        :src="ifreamSrc"
+        frameborder="0"
+        width="100%"
+        id="footer"
+        name="footer"
+        framespacing="0"
+        :height="ifreamHeight"
+        scrolling="no"
+      ></iframe>
+    </div>
   </div>
 </template>
 
@@ -459,7 +473,9 @@ export default {
       return reason;
     },
     close() {
-      // if(process.client){window.ws.close()}
+      if (process.client) {
+        window.ws.close();
+      }
     },
     init() {
       this.wsRq.getAll(this.routeId);
