@@ -60,6 +60,8 @@ export default {
       src: '~/plugins/getcarrucy'
     }, {
       src: '~/plugins/scrollbar'
+    }, {
+      src: '~/plugins/stslider'
     }
   ],
   router: {
