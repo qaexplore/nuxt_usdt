@@ -14,9 +14,10 @@
         <a :href="apiConfig.swapsDomain">{{ $t('message.header.trade') }}</a>
       </st-row>
       <st-row align="center" class="item">
+        <!-- ${$store.state.market.contract[0].id} -->
         <router-link
           :class="{active: $route.path.indexOf('trade/') > 0}"
-          :to="`/trade/${$store.state.market.contract[0].id}`"
+          :to="`/trade/`"
           class="usdt"
         >
           {{ $t('message.header.usdtTrade') }}
@@ -36,8 +37,9 @@
         >{{ $t('message.header.guide') }}</router-link>
       </st-row>
       <st-row align="center" class="item">
+        <!-- +$route.params.id -->
         <router-link
-          :to="'/history/'+$route.params.id"
+          :to="'/history/'"
           active-class="active"
         >{{ $t('message.header.tradeHistory') }}</router-link>
       </st-row>
@@ -93,6 +95,7 @@
   </st-row>
 </template>
 <script>
+import lottie from 'lottie-web'
 import ApiConfig from "@/assets/js/config/api.config";
 import Product from "@/assets/js/config/product";
 import Cookie from "@/assets/js/config/cookie";
@@ -156,6 +159,7 @@ export default {
     }
   },
   mounted() {
+    if(process.client) return;
     lottie.loadAnimation({
       path: "/static/json/hot.json", // json文件路径
       loop: true,

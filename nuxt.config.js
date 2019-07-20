@@ -48,6 +48,10 @@ export default {
     },
     {
       src: '~/plugins/i18n.js'
+    }, {
+      src: '~/plugins/strow'
+    }, {
+      src: '~/plugins/language'
     }
   ],
   router: {

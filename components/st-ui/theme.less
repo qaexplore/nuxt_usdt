@@ -1,0 +1,129 @@
+/* 颜色规范 */
+@linkColor: #597ab9;
+@borderColor: #eff2f5;
+@tipColor: #999;
+@placeholderColor: #ccc;
+@inputColor: #ced0da;
+@inputErrorColor: #e6491a;
+@buttonColor: #597ab9;
+@hoverColor: #4a6dae;
+
+/* flex-grid */
+.flex(@val: 1) {
+  -webkit-box-flex: @val;
+  -moz-box-flex: @val;
+  -webkit-flex: @val;
+  -ms-flex: @val;
+  flex: @val;
+}
+
+.flex-grow(@val: 1) {
+  -webkit-box-flex: @val+0.0;
+  -moz-flex-grow: @val;
+  -webkit-flex-grow: @val;
+  flex-grow: @val;
+}
+
+.flex-shrink(@val: 0) {
+  -webkit-box-flex: @val+0.0;
+  -moz-flex-shrink: @val+0.0;
+  -webkit-flex-shrink: @val+0.0;
+  flex-shrink: @val+0.0;
+}
+
+/* 圆角 */
+.border-radius(@radius: 3px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+/* placeholder */
+.placeholder(@rules) {
+  &::-webkit-input-placeholder {
+    @rules();
+  }
+  &:-moz-placeholder {
+    @rules();
+  }
+  &::-moz-placeholder {
+    @rules();
+  }
+  &:-ms-input-placeholder {
+    @rules();
+  }
+}
+
+/* 外阴影 */
+.border-shadow(@arguments) {
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+/* 动画 */
+.transition(@arguments){
+  transition: @arguments;
+  -moz-transition: @arguments; /* Firefox 4 */
+  -webkit-transition: @arguments; /* Safari 和 Chrome */
+  -o-transition: @arguments; /* Opera */
+}
+
+/* 变化 */
+.transform(@params){
+  transform:@params;
+  -ms-transform:@params; 	/* IE 9 */
+  -moz-transform:@params; 	/* Firefox */
+  -webkit-transform:@params; /* Safari 和 Chrome */
+  -o-transform:@params; 	/* Opera */
+}
+
+/* 表格 */
+.theme-1(){
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  thead tr {
+    height: 50px;
+    background: #fafafb;
+    border-bottom: 2px solid #ededee;
+    th {
+      font-size: 12px;
+      font-weight: normal;
+      color: #888;
+    }
+  }
+  tbody {
+    tr {
+      height: 50px;
+      &:nth-child(2n) {
+        background: #fafafb;
+      }
+      td {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.theme-2(){
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  thead tr {
+    height: 50px;
+    border-bottom: 1px solid @borderColor;
+    th {
+      font-size: 14px;
+      font-weight: normal;
+      color: #888;
+    }
+  }
+  tbody tr {
+    height: 60px;
+    border-bottom: 1px solid @borderColor;
+    td {
+      font-size: 14px;
+    }
+  }
+}
