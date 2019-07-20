@@ -1,5 +1,5 @@
 import Utils from './utils'
-// import ToolsApi from './api/toolsApi'
+import ToolsApi from './api/toolsApi'
 
 function singleFormat(str) {
   return str.toString().length === 1 ? ('0' + str) : str
@@ -32,10 +32,9 @@ function getHM(time) {
 }
 
 function fromLocalTime(time) {
-  // let GTM_8 = ToolsApi.time.offset / 1000 / 60  // -480
+  let GTM_8 = ToolsApi.time.offset / 1000 / 60 // -480
   let date = new Date(time)
-  // let subMin = date.getTimezoneOffset() + GTM_8
-  let subMin = date.getTimezoneOffset()
+  let subMin = date.getTimezoneOffset() + GTM_8
   date.setMinutes(date.getMinutes() + subMin)
   return date
 }

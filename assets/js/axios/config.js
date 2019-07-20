@@ -23,7 +23,7 @@ export const AxiosInit = (obj) => {
     }
     // 无token时，尝试重新获取token
     if (!config.headers['ACCESS_TOKEN']) {
-      config.headers['ACCESS_TOKEN'] = Cookie.getCookie('token')
+      config.headers['ACCESS_TOKEN'] = Cookie.getCookie('token') || ''
     }
     return config
   }, (error) => {
