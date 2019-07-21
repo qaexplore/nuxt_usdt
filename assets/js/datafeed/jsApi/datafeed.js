@@ -1,9 +1,7 @@
-import store from '@/store/index'
 import SwapsApi from '@/assets/js/api/swapsApi'
 import Sub from "@/assets/js/sub"
 
-const kLineType = [
-  {
+const kLineType = [{
     id: 0,
     name: '0',
     buttonName: '分时',
@@ -97,15 +95,16 @@ const kLineType = [
 ]
 
 class DataFeeds {
-  constructor (product, bits) {
+  constructor(product, bits, store) {
     this.product = product
     this.firstTime = ''
     this.sub = new Sub()
     this.timer = null
     this.bits = bits
+    this.store = store
   }
 
-  onReady (callback) {
+  onReady(callback) {
     setTimeout(() => {
       callback({
         exchanges: [],
@@ -120,7 +119,7 @@ class DataFeeds {
     }, 0)
   }
 
-  resolveSymbol (symbolName, onSymbolResolvedCallback) {
+  resolveSymbol(symbolName, onSymbolResolvedCallback) {
     setTimeout(() => {
       onSymbolResolvedCallback({
         'name': symbolName,
@@ -145,29 +144,32 @@ class DataFeeds {
     }, 0)
   }
 
-  getBars (symbolInfo, resolution, rangeStartDate, rangeEndDate, onDataCallback, onErrorCallback, onRealtimeCallback) {
+  getBars(symbolInfo, resolution, rangeStartDate, rangeEndDate, onDataCallback, onErrorCallback, onRealtimeCallback) {
     // console.log(onRealtimeCallback)
     let obj = kLineType.filter(item => {
       return item.name === resolution.toString()
     })[0]
     let type = obj.id
-    store.commit('SET_KTYPE', type)
-    store.commit('SET_KTIME', obj.period)
+    this.store.commit('market/SET_KTYPE', type)
+    this.store.commit('market/SET_KTIME', obj.period)
     // console.log(obj.period)
     let step = obj.step
-    // if (store.state.market.changeKtime) {
-    //   store.commit('SET_CHANGEKTIME', false)
+    // if (this.store.state.market.changeKtime) {
+    //   this.store.commit('SET_CHANGEKTIME', false)
     //   this.sub.subK(this.product)
     // }
-    if (store.state.market.changeKtime && store.state.market.connect) {
+    if (this.store.state.market.changeKtime && this.store.state.market.connect) {
       // 在追加完数据之后 在订阅 否则订阅的数据先到 导致数据混乱
       setTimeout(() => {
-        store.commit('SET_CHANGEKTIME', false)
+        this.store.commit('market/SET_CHANGEKTIME', false)
         this.sub.subK(this.product)
       }, 1500)
     }
     if (this.firstTime && this.firstTime > rangeStartDate * 1000) {
-      onDataCallback([], { noData: true, nextTime: undefined })
+      onDataCallback([], {
+        noData: true,
+        nextTime: undefined
+      })
     } else {
       const getBar = () => {
         // SwapsApi.getBar({product: symbolInfo.name, type: type, since: ''}).then((res) => {
@@ -190,8 +192,8 @@ class DataFeeds {
         //       bars.push(barValue)
         //     }
         //     this.firstTime = bars[0].time || new Date().getTime()
-        //     store.commit('SET_SPECIALLASTPRICE', bars[bars.length - 1].close)
-        //     store.commit('SET_KLASTTIME', bars[bars.length - 1].time)
+        //     this.store.commit('SET_SPECIALLASTPRICE', bars[bars.length - 1].close)
+        //     this.store.commit('SET_KLASTTIME', bars[bars.length - 1].time)
         //     onDataCallback(bars)
         //   } else {
         //     onDataCallback([])
@@ -200,11 +202,11 @@ class DataFeeds {
         //   clearTimeout(this.timer)
         //   this.timer = setTimeout(getBar, 1000)
         // })
-        let klinedata = store.state.market.klineData[symbolInfo.name + '_' + obj.period]
-        if (klinedata && store.state.market.klineData ) {
+        let klinedata = this.store.state.market.klineData[symbolInfo.name + '_' + obj.period]
+        if (klinedata && this.store.state.market.klineData) {
           console.log("缓存")
           let bars = []
-          if (klinedata && klinedata.length >0) {
+          if (klinedata && klinedata.length > 0) {
             for (let i = 0; i < klinedata.length; i++) {
               // if (i < klinedata.length - 1 && Number(klinedata[i + 1].time) - Number(klinedata[i].time) !== step) {
               //   bars = []
@@ -222,12 +224,16 @@ class DataFeeds {
             }
             this.firstTime = bars[0].time || new Date().getTime()
             // // K线数据
-            store.commit('SET_SPECIALLASTPRICE', bars[bars.length - 1].close)
+            this.store.commit('market/SET_SPECIALLASTPRICE', bars[bars.length - 1].close)
             // 最后的K线时间
-            store.commit('SET_KLASTTIME', bars[bars.length - 1].time)
+            this.store.commit('market/SET_KLASTTIME', bars[bars.length - 1].time)
             onDataCallback(bars)
             // console.log(bars)
-            SwapsApi.getBar({product: symbolInfo.name, type: type, since: store.state.market.kLasttime + 1})
+            SwapsApi.getBar({
+                product: symbolInfo.name,
+                type: type,
+                since: this.store.state.market.kLasttime + 1
+              })
               .then((res) => {
                 let bars1 = []
                 let barData = res.data.bar_data
@@ -248,20 +254,24 @@ class DataFeeds {
                     bars1.push(barValue)
                   }
                   this.firstTime = bars1[0].time || new Date().getTime()
-                  store.commit('SET_SPECIALLASTPRICE', bars1[bars1.length - 1].close)
+                  this.store.commit('market/SET_SPECIALLASTPRICE', bars1[bars1.length - 1].close)
                   // 最后的K线时间
-                  store.commit('SET_KLASTTIME', bars1[bars1.length - 1].time)
+                  this.store.commit('market/SET_KLASTTIME', bars1[bars1.length - 1].time)
                   bars1.forEach(item => {
                     // 追加K线的方法
                     window.addData(item)
                   })
                   if (barData.length > 1) {
-                    barData.splice(barData.length-1,1)
+                    barData.splice(barData.length - 1, 1)
                     // 最后的K线时间
-                    store.commit('SET_KLASTTIME', barData[barData.length - 1].time)
-                    store.commit('SET_KLINEDATA_ADD', {id: symbolInfo.name , time: obj.period, data: barData})
+                    this.store.commit('market/SET_KLASTTIME', barData[barData.length - 1].time)
+                    this.store.commit('market/SET_KLINEDATA_ADD', {
+                      id: symbolInfo.name,
+                      time: obj.period,
+                      data: barData
+                    })
                   }
-                  
+
                 } else {
                   onDataCallback([])
                 }
@@ -274,7 +284,11 @@ class DataFeeds {
           }
         } else {
           console.log("没缓存")
-          SwapsApi.getBar({product: symbolInfo.name, type: type, since: ''}).then((res) => {
+          SwapsApi.getBar({
+            product: symbolInfo.name,
+            type: type,
+            since: ''
+          }).then((res) => {
             let bars = []
             let barData = res.data.bar_data
             // console.log(barData)
@@ -295,12 +309,16 @@ class DataFeeds {
                 bars.push(barValue)
               }
               this.firstTime = bars[0].time || new Date().getTime()
-              store.commit('SET_SPECIALLASTPRICE', bars[bars.length - 1].close)
-              barData.splice(barData.length-1,1)
+              this.store.commit('market/SET_SPECIALLASTPRICE', bars[bars.length - 1].close)
+              barData.splice(barData.length - 1, 1)
               // console.log(barData)
               // console.log(barData[barData.length - 1].time)
-              store.commit('SET_KLASTTIME', barData[barData.length - 1].time)
-              store.commit('SET_KLINEDATA',{time: obj.period, id: symbolInfo.name, data: barData})
+              this.store.commit('market/SET_KLASTTIME', barData[barData.length - 1].time)
+              this.store.commit('market/SET_KLINEDATA', {
+                time: obj.period,
+                id: symbolInfo.name,
+                data: barData
+              })
               onDataCallback(bars)
             } else {
               onDataCallback([])
@@ -317,10 +335,10 @@ class DataFeeds {
     }
   }
 
-  subscribeBars (symbolInfo, resolution, onRealtimeCallback, listenerGUID, onResetCacheNeededCallback) {
+  subscribeBars(symbolInfo, resolution, onRealtimeCallback, listenerGUID, onResetCacheNeededCallback) {
     window.refresh = (barData) => {
-      store.commit('SET_SPECIALLASTPRICE', barData.close)
-      // store.commit('SET_KLASTTIME', barData.time)
+      this.store.commit('market/SET_SPECIALLASTPRICE', barData.close)
+      // this.store.commit('SET_KLASTTIME', barData.time)
       // console.log(barData, symbolInfo);
       // console.log(barData.productId !== symbolInfo.name);
       if (barData.productId !== symbolInfo.name) return;
@@ -345,7 +363,7 @@ class DataFeeds {
     }
   }
 
-  unsubscribeBars (listenerGUID) {
+  unsubscribeBars(listenerGUID) {
     this.firstTime = ''
   }
 }

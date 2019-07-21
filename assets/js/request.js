@@ -52,7 +52,7 @@ class WsRq {
     SwapsApi.getBar(obj, cancel ? this.source.token : '').then((res) => {
       let arr = res.data.bar_data || []
       let obj = arr.pop() || {}
-      this.store.commit('SET_SPECIALLASTPRICE', obj.close)
+      this.store.commit('market/SET_SPECIALLASTPRICE', obj.close)
       window.refresh && window.refresh(obj)
     }).catch(err => {
 

@@ -26,7 +26,14 @@ export default {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
-    }]
+    }],
+    script: [{
+        src: '/js/jquery-3.2.1.min.js'
+      },
+      {
+        src: '/js/charting_library/charting_library.min.js'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color

@@ -76,14 +76,14 @@ export default {
           if (this.$store.state.market.kDieState) {
             this.reInit();
           } else {
-            this.$store.commit("SET_KDIESTATE", true);
+            this.$store.commit("market/SET_KDIESTATE", true);
           }
         }
       }
     },
     $route(route) {
       // 处理k线断网重连，设置拦截使正常跳转时k线不刷新两次
-      this.$store.commit("SET_KDIESTATE", false);
+      this.$store.commit("market/SET_KDIESTATE", false);
       this.reInit();
     },
     "$store.state.dictionary.screenWidth": {
@@ -124,7 +124,7 @@ export default {
   },
   created() {
     // 处理k线断网重连，设置拦截使正常跳转时k线不刷新两次
-    this.$store.commit("SET_KDIESTATE", false);
+    this.$store.commit("market/SET_KDIESTATE", false);
     let res = this.$store.state.dictionary.theme;
     if (res === "white") {
       this.themeColor = this.themeWhiteOption;
@@ -160,9 +160,13 @@ export default {
         this.widgetHeight = 460;
       }
       let TradingView = window.TradingView;
+      let klinePriceFloat = !!this.contractInfo.contractParam
+        ? this.contractInfo.contractParam.klinePriceFloat
+        : 4;
       let dataFeeds = new DataFeeds(
         this.$route.params.id,
-        this.contractInfo.contractParam.klinePriceFloat
+        klinePriceFloat,
+        this.$store
       );
       let that = this;
       let widget = (this.widget = window.tvWidget = new TradingView.widget({
@@ -174,7 +178,7 @@ export default {
         timezone: "Asia/Hong_Kong",
         container_id: "tv_chart_container",
         datafeed: dataFeeds,
-        library_path: "/static/js/charting_library/",
+        library_path: "/js/charting_library/",
         locale: this.changeLocale() || "zh",
         custom_css_url: this.themeColor.baseUrl,
         debug: false,
@@ -274,7 +278,7 @@ export default {
               that.sub.cancelK(that.$route.params.id);
             }
             // 改变K线时间
-            that.$store.commit("SET_CHANGEKTIME", true);
+            that.$store.commit("market/SET_CHANGEKTIME", true);
             buttonList.map(item => {
               item.removeClass("selected");
             });

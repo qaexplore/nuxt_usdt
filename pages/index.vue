@@ -9,7 +9,7 @@
       <div class="content" :style="contentStyle+';overflow:hidden;'">
         <st-row>
           <product-market class="margin">
-            <!-- <trade-list <trading-view></trading-view> -->
+            <trading-view></trading-view>
           </product-market>
           <trade-list ref="trade-list" class="margin margin-left10"></trade-list>
         </st-row>
@@ -54,7 +54,7 @@ import Sub from "@/assets/js/sub";
 import SwapsHeader from "@/components/swaps-header.vue";
 import Toolbar from "@/components/trade/toolbar";
 import TradeTags from "@/components/trade/new-trade-tags";
-// import TradingView from '@/components/trade/trading-view.vue'
+import TradingView from "@/components/trade/trading-view.vue";
 import ProductMarket from "@/components/trade/product-market.vue";
 import TradeList from "@/components/trade/trade-list";
 import TradeDetailList from "@/components/trade/trade-detail-list";
@@ -86,7 +86,7 @@ export default {
     SwapsHeader,
     Toolbar,
     TradeTags,
-    // TradingView,
+    TradingView,
     ProductMarket,
     TradeList,
     TradeDetailList,
