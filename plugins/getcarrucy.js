@@ -14,8 +14,9 @@ export default ({
       }
     })
     store.commit('market/SET_CONTRACT', arr)
+    let id = !!arr[0] ? arr[0].id : ''
     if (!!route.params.id) return
-    redirect(`/trade/${arr[0].id}`)
+    process.client && redirect(`/trade/${id}`)
   }).catch(err => {
     console.log(err)
   })

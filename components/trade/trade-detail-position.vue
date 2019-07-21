@@ -565,7 +565,7 @@ export default {
     getInfo(id, arr) {
       let obj =
         arr.filter(item => {
-          return item.id.toString() === id.toString();
+          return Number(item.id) === Number(id);
         })[0] || {};
       return obj;
     },

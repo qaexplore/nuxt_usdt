@@ -64,7 +64,7 @@ class WsRq {
     if (!cancel) {
       let contracts = this.store.state.market.contract || []
       contracts.forEach(item => {
-        SwapsApi.getOrderBook(item.id, item.id.toString() === id.toString() ? this.source.token : '').then((res) => {
+        SwapsApi.getOrderBook(item.id, Number(item.id) === Number(id) ? this.source.token : '').then((res) => {
           let obj = res.data.deth || {}
           let data = {
             data: {

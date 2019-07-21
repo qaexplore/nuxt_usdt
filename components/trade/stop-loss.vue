@@ -79,13 +79,13 @@ export default {
   computed: {
     contractInfo() {
       let tmp = this.$store.state.market.contract.filter(item => {
-        return item.id.toString() === this.$route.params.id.toString()
+        return Number(item.id) === Number(this.$route.params.id)
       })
       return tmp[0] || {}
     },
     figure () {
       let tmp = this.$store.state.market.contract.filter(item => {
-        return item.id.toString() === this.contractInfo.id.toString()
+        return Number(item.id) === Number(this.contractInfo.id)
       })
       return tmp[0] && tmp[0].contractParam || {}
     }
