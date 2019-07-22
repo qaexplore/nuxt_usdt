@@ -153,17 +153,17 @@ let actions = {
   saveOrder(context, payload) {
     context.commit('SET_ORDER', {
       id: payload.product,
-      data: orderBookData(payload.data, payload.product)
+      data: orderBookData(payload.data, payload.product, context)
     })
   }
 }
 
-function orderBookData(data, id) {
-  if (state.firstOrder) {
-    mutations['SET_FIRSTORDER'](state, false)
+function orderBookData(data, id, context) {
+  if (context.state.firstOrder) {
+    context.commit('SET_FIRSTORDER', false)
     return data
   }
-  let oldData = state.order[id]
+  let oldData = context.state.order[id]
   let obj = {}
   obj['bids'] = formatOrderBook(oldData, data, 'bids')
   obj['asks'] = formatOrderBook(oldData, data, 'asks')
@@ -172,32 +172,34 @@ function orderBookData(data, id) {
 
 function formatOrderBook(oldData, newData, type) {
   if (newData && oldData && newData[type] && oldData[type]) {
-    for (let i = newData[type].length; i--;) {
+    let newArr = newData[type].slice();
+    let oldArr = oldData[type].slice();
+    for (let i = newArr.length; i--;) {
       let bl = true
-      for (let j = oldData[type].length; j--;) {
-        if (Number(newData[type][i][0]) > Number(oldData[type][j][0])) {
-          if (Number(newData[type][i][1]) !== 0) {
-            oldData[type].splice(j + 1, 0, newData[type][i])
+      for (let j = oldArr.length; j--;) {
+        if (Number(newArr[i][0]) > Number(oldArr[j][0])) {
+          if (Number(newArr[i][1]) !== 0) {
+            oldArr.splice(j + 1, 0, newArr[i])
           }
           bl = false
           break
-        } else if (Number(newData[type][i][0]) === Number(oldData[type][j][0])) {
-          if (Number(newData[type][i][1]) === 0) {
-            oldData[type].splice(j, 1)
+        } else if (Number(newArr[i][0]) === Number(oldArr[j][0])) {
+          if (Number(newArr[i][1]) === 0) {
+            oldArr.splice(j, 1)
           } else {
-            oldData[type].splice(j, 1, newData[type][i])
+            oldArr.splice(j, 1, newArr[i])
           }
           bl = false
           break
         }
       }
-      if (bl && Number(newData[type][i][1]) !== 0) {
-        oldData[type].unshift(newData[type][i])
+      if (bl && Number(newArr[i][1]) !== 0) {
+        oldArr.unshift(newArr[i])
       }
     }
-    return oldData[type]
+    return oldArr
   } else if (newData) {
-    return newData[type] || []
+    return newArr || []
   }
 }
 
