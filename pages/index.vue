@@ -161,7 +161,7 @@ export default {
       handler(val) {
         if (val) {
           this.wsRq.clear();
-          this.sub.subAll(this.routeId);
+          !!this.sub.subAll && this.sub.subAll(this.routeId);
         } else {
           this.wsRq.getAll(this.routeId, true);
         }

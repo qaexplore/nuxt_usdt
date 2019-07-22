@@ -129,7 +129,6 @@ class Socket {
       this.store.commit('market/SET_FIRSTORDER', false)
       return data
     }
-    console.log(this.store.state.market);
     let oldData = this.store.state.market.order[id]
     let obj = {}
     obj['bids'] = this.formatOrderBook(oldData, data, 'bids')

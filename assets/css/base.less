@@ -1,7 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   line-height: 1.5;
@@ -11,6 +11,7 @@
 html {
   height: 100%;
 }
+
 body {
   position: relative;
   min-height: 100%;
@@ -26,12 +27,12 @@ a {
   cursor: pointer;
 }
 
-input{
+input {
   border: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-       -o-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
   outline: none;
   box-shadow: none;
 }
@@ -70,10 +71,12 @@ h6 {
 .toast {
   padding: 5px 10px;
 }
+
 .toast .text {
   color: #fff;
 }
 
-// input[type="checkbox"] {
-//   -webkit-appearance: checkbox;
-// }
+.el-table th,
+.el-table tr {
+  background-color: inherit !important;
+}

@@ -628,8 +628,10 @@ export default {
             ),
             100
           ),
-          this.getInfo(item.contractId, this.contract).contractParam
-            .profitRateFloat
+          !!this.getInfo(item.contractId, this.contract).contractParam
+            ? this.getInfo(item.contractId, this.contract).contractParam
+                .profitRateFloat
+            : 2
         );
       } else {
         return Utils.splitFormat(
@@ -643,8 +645,10 @@ export default {
             ),
             100
           ),
-          this.getInfo(item.contractId, this.contract).contractParam
-            .profitRateFloat
+          !!this.getInfo(item.contractId, this.contract).contractParam
+            ? this.getInfo(item.contractId, this.contract).contractParam
+                .profitRateFloat
+            : 2
         );
       }
     },
