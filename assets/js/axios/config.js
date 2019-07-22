@@ -35,7 +35,7 @@ export const AxiosInit = (obj) => {
   axios.interceptors.response.use((res) => {
     if (res.data.code === 10200000) {
       Cookie.clearCookie('token', apiConfig.domain)
-      store.commit('SET_USERINFO', null)
+      store.commit('user/SET_USERINFO', null)
       return Promise.reject(res)
     }
     if (parseInt(res.status) !== 200) return Promise.reject(res)

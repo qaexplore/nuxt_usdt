@@ -75,7 +75,9 @@
       <st-row class="item text" justify="between">
         <p>
           {{ $t(`message.transform.maxTransform`) }}：
-          <span class="num">{{maxAmount | splitFormat(figure.indexPriceFloat)}}</span>
+          <span
+            class="num"
+          >{{maxAmount | splitFormat(figure.indexPriceFloat)}}</span>
         </p>
         <p class="all" @click="transferAll">{{ $t(`message.transform.allTransform`) }}</p>
       </st-row>
@@ -386,13 +388,13 @@ export default {
             this.$toast(this.$t(`message.common.success`));
           }
           setTimeout(() => {
-            this.$store.dispatch("getAssetsMain").catch(er => {
+            this.$store.dispatch("account/getAssetsMain").catch(er => {
               console.log(er);
             });
-            this.$store.dispatch("getAssetsDetail").catch(er => {
+            this.$store.dispatch("account/getAssetsDetail").catch(er => {
               console.log(er);
             });
-            this.$store.dispatch("getAssetsLabs").catch(er => {
+            this.$store.dispatch("account/getAssetsLabs").catch(er => {
               console.log(er);
             });
           }, 300);
@@ -413,23 +415,26 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch("getAssetsMain").catch(er => {
+    this.$store.dispatch("account/getAssetsMain").catch(er => {
       console.log(er);
     });
-    this.$store.dispatch("getAssetsDetail").catch(er => {
+    this.$store.dispatch("account/getAssetsDetail").catch(er => {
       console.log(er);
     });
-    this.$store.dispatch("getAssetsLabs").catch(er => {
+    this.$store.dispatch("account/getAssetsLabs").catch(er => {
       console.log(er);
     });
     ToolsApi.getCurrencyAll()
       .then(res => {
-        this.$store.commit("SAVE_SUPPOERTSITE", res.data.siteCurrencyAll);
+        this.$store.commit(
+          "dictionary/SAVE_SUPPOERTSITE",
+          res.data.siteCurrencyAll
+        );
       })
       .catch(err => {});
     ToolsApi.getMainSite()
       .then(res => {
-        this.$store.commit("SAVE_MAINSITE", res.data.site);
+        this.$store.commit("dictionary/SAVE_MAINSITE", res.data.site);
       })
       .catch(err => {});
   }

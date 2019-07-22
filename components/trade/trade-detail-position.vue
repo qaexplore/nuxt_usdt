@@ -830,7 +830,7 @@ export default {
       if (this.list.length !== 0) {
         this.$store.commit("market/SET_POSITION_LIST", true);
         // 存储仓位列表
-        this.$store.commit("STORE_POSITION_LIST", this.list);
+        this.$store.commit("market/STORE_POSITION_LIST", this.list);
         this.list1.push(last);
 
         // this.fixedTotal()

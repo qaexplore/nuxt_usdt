@@ -38,10 +38,7 @@
       </st-row>
       <st-row align="center" class="item">
         <!-- +$route.params.id -->
-        <router-link
-          :to="'/history/'"
-          active-class="active"
-        >{{ $t('message.header.tradeHistory') }}</router-link>
+        <router-link :to="'/history/'" active-class="active">{{ $t('message.header.tradeHistory') }}</router-link>
       </st-row>
       <!-- <st-row class="item" align="center">
         <router-link to="/direct">{{$t('message.header.newPlayer')}}</router-link>
@@ -95,7 +92,7 @@
   </st-row>
 </template>
 <script>
-import lottie from 'lottie-web'
+import lottie from "lottie-web";
 import ApiConfig from "@/assets/js/config/api.config";
 import Product from "@/assets/js/config/product";
 import Cookie from "@/assets/js/config/cookie";
@@ -175,7 +172,7 @@ export default {
     if (Cookie.getCookie("token")) {
       UserApi.getUserInfo().then(res => {
         // console.log(res)
-        this.$store.commit("SET_USERINFO", res.data.info);
+        this.$store.commit("user/SET_USERINFO", res.data.info);
       });
     }
   }

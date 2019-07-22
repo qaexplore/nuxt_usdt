@@ -345,7 +345,7 @@ export default {
       SwapsApi.getWalletAsset(this.contractInfo.currencyId)
         .then(res => {
           let asset = (res.data && res.data.asset) || {};
-          this.$store.commit("SET_WALLETASSET", asset);
+          this.$store.commit("user/SET_WALLETASSET", asset);
           // 计算资金杠杆/资金使用率
           this.fundleverageUtilizationRate(asset);
         })
@@ -355,7 +355,7 @@ export default {
       SwapsApi.getWallet(this.contractInfo.currencyId)
         .then(res => {
           let wallet = (res.data && res.data.wallet) || {};
-          this.$store.commit("SET_WALLET", wallet);
+          this.$store.commit("user/SET_WALLET", wallet);
         })
         .catch(err => {
           // this.$store.commit('SET_WALLET', wallet)

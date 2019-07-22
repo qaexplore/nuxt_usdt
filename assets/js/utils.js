@@ -1,7 +1,7 @@
 import bigdecimal from 'bigdecimal'
 
 let Utils = {
-  transReArr (arr) {
+  transReArr(arr) {
     return Array.from(new Set(arr))
   },
   // 处理Blob数据
@@ -25,16 +25,16 @@ let Utils = {
     }
   },
   // 深copy
-  deepCopy (obj) {
+  deepCopy(obj) {
     if (!obj) return {}
     let newObj = obj.constructor === Array ? [] : {}
-    for(let key in obj) {
+    for (let key in obj) {
       newObj[key] = (typeof obj[key] === 'object') ? this.deepCopy(obj[key]) : obj[key]
     }
     return newObj
   },
   // 加减乘除
-  add (arg1, arg2) {
+  add(arg1, arg2) {
     let r1, r2, m;
     try {
       r1 = arg1.toString().split(".")[1].length
@@ -49,7 +49,7 @@ let Utils = {
     m = Math.pow(10, Math.max(r1, r2));
     return (arg1 * m + arg2 * m) / m;
   },
-  sub (arg1, arg2) {
+  sub(arg1, arg2) {
     var r1, r2, m, n;
     try {
       r1 = arg1.toString().split(".")[1].length
@@ -66,7 +66,8 @@ let Utils = {
     n = (r1 >= r2) ? r1 : r2;
     return ((arg1 * m - arg2 * m) / m).toFixed(n);
   },
-  mul (arg1, arg2) {
+  mul(arg1, arg2) {
+    if (!arg1 || !arg2) return;
     var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
     try {
       m += s1.split(".")[1].length
@@ -78,9 +79,9 @@ let Utils = {
     }
     return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
   },
-  div (arg1, arg2) {
-    if (!arg1)return '';
-    if (!arg2)return '';
+  div(arg1, arg2) {
+    if (!arg1) return '';
+    if (!arg2) return '';
     var t1 = 0, t2 = 0, r1, r2;
     try {
       t1 = arg1.toString().split(".")[1].length
@@ -95,20 +96,20 @@ let Utils = {
     return (r1 / r2) * Math.pow(10, t2 - t1);
   },
   // 处理科学计数法
-  editE (num) {
+  editE(num) {
     //处理非数字
-    if(isNaN(num)){return num};
-    
+    if (isNaN(num)) { return num };
+
     //处理不需要转换的数字
-    var str = ''+num;
-    if(!/e/i.test(str)){return num;};
+    var str = '' + num;
+    if (!/e/i.test(str)) { return num; };
     let tmp = new bigdecimal.BigDecimal(num).stripTrailingZeros().toPlainString()
     return tmp
   },
   // 根据key去重对象数组
-  reRepeatArr (arr, key) {
+  reRepeatArr(arr, key) {
     if (arr instanceof Array) {
-      let newArr = [],obj = {};
+      let newArr = [], obj = {};
       for (let i = 0; i < arr.length; i++) {
         if (!obj[arr[i][key]]) {
           newArr.push(arr[i])
@@ -124,7 +125,7 @@ let Utils = {
   },
   // 深度相关
   deepFn: {
-    merge (data, type, deep, len, size = 3) {
+    merge(data, type, deep, len, size = 3) {
       let order = []
       order.max = 0
       if (data && data.length && !type) {
@@ -215,7 +216,7 @@ let Utils = {
         return order
       }
     },
-    formatDeep (num, deep, type) {
+    formatDeep(num, deep, type) {
       let value = num
       if (type) {
         if (deep > 0) {
@@ -249,7 +250,7 @@ let Utils = {
         }
       }
     },
-    editE (num) {
+    editE(num) {
       if (!num) return num
       num = num.toString()
       if (num.indexOf('e') === -1) { return num }
@@ -266,7 +267,7 @@ let Utils = {
       return v
     }
   },
-  splitFormat (num, fractionDigits) {
+  splitFormat(num, fractionDigits) {
     if (!fractionDigits) fractionDigits = 0
     if (isNaN(num)) return num
     if (num) {
@@ -303,15 +304,15 @@ let Utils = {
    * 防爆仓限制,如果超出限制则禁止下单,返回true 限制，false不限制 (具体规则查看12种情况文档)
    * id 合约id，positions 合约列表，balance 可用资金，price 委托价，amount 委托数量，value 乘数，index 指数价格，cost * mm 维持保证金，cost 净仓位价值，mm 维持保证金率，buy 买一， sell卖一
    * **/
-  operateLimit (id, positions, orderType, side, balance, price, amount, value, taker, index, mm, cost, buy, sell) {
+  operateLimit(id, positions, orderType, side, balance, price, amount, value, taker, index, mm, cost, buy, sell) {
     buy = buy || 0
     sell = sell || 0
     let typeSide, // 净头寸方向 ，1同2反
-        typeValue, // 净头寸值
-        newBalance, // 新可用权益
-        newDeposit, // 新维持保证金
-        sellPosition = {}, // 空仓对象
-        buyPosition = {}; // 多仓对象
+      typeValue, // 净头寸值
+      newBalance, // 新可用权益
+      newDeposit, // 新维持保证金
+      sellPosition = {}, // 空仓对象
+      buyPosition = {}; // 多仓对象
     // 计算净头寸值和方向
     let positionCurrents = positions.filter(item => {
       return item.contractId.toString() === id.toString()
