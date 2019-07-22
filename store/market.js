@@ -153,8 +153,51 @@ let actions = {
   saveOrder(context, payload) {
     context.commit('SET_ORDER', {
       id: payload.product,
-      data: payload.data
+      data: orderBookData(payload.data, payload.product)
     })
+  }
+}
+
+function orderBookData(data, id) {
+  if (state.firstOrder) {
+    mutations['SET_FIRSTORDER'](state, false)
+    return data
+  }
+  let oldData = state.order[id]
+  let obj = {}
+  obj['bids'] = formatOrderBook(oldData, data, 'bids')
+  obj['asks'] = formatOrderBook(oldData, data, 'asks')
+  return obj
+}
+
+function formatOrderBook(oldData, newData, type) {
+  if (newData && oldData && newData[type] && oldData[type]) {
+    for (let i = newData[type].length; i--;) {
+      let bl = true
+      for (let j = oldData[type].length; j--;) {
+        if (Number(newData[type][i][0]) > Number(oldData[type][j][0])) {
+          if (Number(newData[type][i][1]) !== 0) {
+            oldData[type].splice(j + 1, 0, newData[type][i])
+          }
+          bl = false
+          break
+        } else if (Number(newData[type][i][0]) === Number(oldData[type][j][0])) {
+          if (Number(newData[type][i][1]) === 0) {
+            oldData[type].splice(j, 1)
+          } else {
+            oldData[type].splice(j, 1, newData[type][i])
+          }
+          bl = false
+          break
+        }
+      }
+      if (bl && Number(newData[type][i][1]) !== 0) {
+        oldData[type].unshift(newData[type][i])
+      }
+    }
+    return oldData[type]
+  } else if (newData) {
+    return newData[type] || []
   }
 }
 

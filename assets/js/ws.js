@@ -122,49 +122,7 @@ class Socket {
       this.dataId = null
       sub.subOrderBook(data.product)
     }
-    Object.keys(data.data).length > 0 && this.store.dispatch('market/saveOrder', this.orderBookData(data, data.product))
-  }
-  orderBookData(data, id) {
-    if (this.store.state.market.firstOrder) {
-      this.store.commit('market/SET_FIRSTORDER', false)
-      return data
-    }
-    let oldData = this.store.state.market.order[id]
-    let obj = {}
-    obj['bids'] = this.formatOrderBook(oldData, data, 'bids')
-    obj['asks'] = this.formatOrderBook(oldData, data, 'asks')
-    return obj
-  }
-
-  formatOrderBook(oldData, newData, type) {
-    if (newData && oldData && newData[type] && oldData[type]) {
-      for (let i = newData[type].length; i--;) {
-        let bl = true
-        for (let j = oldData[type].length; j--;) {
-          if (Number(newData[type][i][0]) > Number(oldData[type][j][0])) {
-            if (Number(newData[type][i][1]) !== 0) {
-              oldData[type].splice(j + 1, 0, newData[type][i])
-            }
-            bl = false
-            break
-          } else if (Number(newData[type][i][0]) === Number(oldData[type][j][0])) {
-            if (Number(newData[type][i][1]) === 0) {
-              oldData[type].splice(j, 1)
-            } else {
-              oldData[type].splice(j, 1, newData[type][i])
-            }
-            bl = false
-            break
-          }
-        }
-        if (bl && Number(newData[type][i][1]) !== 0) {
-          oldData[type].unshift(newData[type][i])
-        }
-      }
-      return oldData[type]
-    } else if (newData) {
-      return newData[type] || []
-    }
+    Object.keys(data.data).length > 0 && this.store.dispatch('market/saveOrder', data)
   }
   // 成交历史
   tradeHistory(data) {
