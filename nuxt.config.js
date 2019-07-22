@@ -1,7 +1,7 @@
 export default {
   mode: 'universal',
   server: {
-    host: 'usdt.test.58ex.com',
+    host: 'usdtlocal.test.58ex.com',
     port: '8080'
   },
   /*
@@ -10,17 +10,17 @@ export default {
   head: {
     title: process.env.npm_package_name || '',
     meta: [{
-        charset: 'utf-8'
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
-      },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+      charset: 'utf-8'
+    },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1'
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content: process.env.npm_package_description || ''
+    }
     ],
     link: [{
       rel: 'icon',
@@ -28,11 +28,13 @@ export default {
       href: '/favicon.ico'
     }],
     script: [{
-        src: '/js/jquery-3.2.1.min.js'
-      },
-      {
-        src: '/js/charting_library/charting_library.min.js'
-      }
+      src: '/js/jquery-3.2.1.min.js'
+    },
+    {
+      src: '/js/charting_library/charting_library.min.js'
+    }, {
+      src: '/js/zlib.pretty.js'
+    }
     ]
   },
   /*
@@ -51,25 +53,25 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [{
-      src: '~/plugins/element-ui'
-    },
-    {
-      src: '~/plugins/i18n.js'
-    }, {
-      src: '~/plugins/strow'
-    }, {
-      src: '~/plugins/language'
-    }, {
-      src: '~/plugins/dictionary'
-    }, {
-      src: '~/plugins/filter'
-    }, {
-      src: '~/plugins/getcarrucy'
-    }, {
-      src: '~/plugins/scrollbar'
-    }, {
-      src: '~/plugins/stslider'
-    }
+    src: '~/plugins/element-ui'
+  },
+  {
+    src: '~/plugins/i18n.js'
+  }, {
+    src: '~/plugins/strow'
+  }, {
+    src: '~/plugins/language'
+  }, {
+    src: '~/plugins/dictionary'
+  }, {
+    src: '~/plugins/filter'
+  }, {
+    src: '~/plugins/getcarrucy'
+  }, {
+    src: '~/plugins/scrollbar'
+  }, {
+    src: '~/plugins/stslider'
+  }
   ],
   router: {
     middleware: 'i18n'
@@ -91,6 +93,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   }
 }
