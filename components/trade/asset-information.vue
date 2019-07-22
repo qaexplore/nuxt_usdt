@@ -9,7 +9,7 @@
       class="box"
       :class="[utils.splitFormat(utils.editE(utils.mul(walletAsset.risk || 0, 100)), 0) < 50 && 'safe_color']"
     >
-      <span>{{ $t('message.asset.riskDegree')+` ${utils.splitFormat(utils.editE(utils.mul(walletAsset.risk || 0, 100)), 0)}%`}}</span>
+      <span>{{ $t('message.asset.riskDegree')+` ${utils.splitFormat(utils.editE(utils.mul(walletAsset.risk || 0, 100)), 0) || 0}%`}}</span>
       <el-popover
         trigger="manual"
         v-model="popoverStatus3"
