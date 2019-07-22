@@ -88,7 +88,7 @@ class WsRq {
             asks: obj.asks
           },
           // product: obj.contractId
-          product: item.id
+          product: id
         }
         this.store.dispatch('market/saveOrder', data)
       }).catch(err => {
