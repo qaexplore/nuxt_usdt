@@ -199,6 +199,7 @@ function formatOrderBook(oldData, newData, type) {
     }
     return oldArr
   } else if (newData) {
+    let newArr = newData[type].slice();
     return newArr || []
   }
 }

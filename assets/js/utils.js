@@ -108,8 +108,9 @@ let Utils = {
   },
   // 根据key去重对象数组
   reRepeatArr(arr, key) {
-    if (arr instanceof Array) {
-      let newArr = [], obj = {};
+    if (Object.prototype.toString.call(arr) === '[object Array]') {
+      let newArr = []
+      let obj = {}
       for (let i = 0; i < arr.length; i++) {
         if (!obj[arr[i][key]]) {
           newArr.push(arr[i])

@@ -69,15 +69,13 @@ export default {
   }, {
     src: '~/plugins/filter'
   }, {
-    src: '~/plugins/getcarrucy'
-  }, {
     src: '~/plugins/scrollbar'
   }, {
     src: '~/plugins/stslider'
   }
   ],
   router: {
-    middleware: 'i18n'
+    middleware: ['i18n', 'getcarrucy']
   },
   /*
    ** Nuxt.js modules
