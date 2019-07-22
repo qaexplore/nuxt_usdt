@@ -387,7 +387,7 @@ export default {
       } else {
         price = this.$filter.splitFormat(price, this.figure.indexPriceFloat);
       }
-      this.$store.commit("SET_OPERATEPRICE", price);
+      this.$store.commit("market/SET_OPERATEPRICE", price);
     },
     getNewsPrice() {
       if (this.newPrice.length === 2) {
