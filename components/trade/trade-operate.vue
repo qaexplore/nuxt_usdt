@@ -706,7 +706,7 @@ export default {
       SwapsApi.orderPlace(this.orderData)
         .then(res => {
           // this.showT(this.$t('message.errorCode.'+res.code))
-          this.$store.commit("SET_NOTICE", "success");
+          this.$store.commit("dictionary/SET_NOTICE", "success");
           this.showPop = false;
           this.disPost = false;
         })

@@ -243,7 +243,7 @@ export default {
       this.showToast = true;
       setTimeout(() => {
         this.showToast = false;
-        this.$store.commit("SET_NOTICE", "no");
+        this.$store.commit("dictionary/SET_NOTICE", "no");
       }, 2000);
     }
   },

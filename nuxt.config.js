@@ -74,6 +74,8 @@ export default {
     src: '~/plugins/stslider'
   }, {
     src: '~/plugins/toast'
+  }, {
+    src: '~/plugins/emerge'
   }
   ],
   router: {
