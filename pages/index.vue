@@ -64,6 +64,7 @@ import Toast2 from "@/components/trade/toast2.vue";
 
 export default {
   name: "index",
+  middleware: "getcarrucy",
   data() {
     return {
       wsRq: new WsRq(this.$store),

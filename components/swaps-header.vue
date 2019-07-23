@@ -14,10 +14,9 @@
         <a :href="apiConfig.swapsDomain">{{ $t('message.header.trade') }}</a>
       </st-row>
       <st-row align="center" class="item">
-        <!-- ${$store.state.market.contract[0].id} -->
         <router-link
           :class="{active: $route.path.indexOf('trade/') > 0}"
-          :to="`/trade/`"
+          :to="`/trade/${$route.params.id}`"
           class="usdt"
         >
           {{ $t('message.header.usdtTrade') }}
@@ -38,7 +37,10 @@
       </st-row>
       <st-row align="center" class="item">
         <!-- +$route.params.id -->
-        <router-link :to="'/history/'" active-class="active">{{ $t('message.header.tradeHistory') }}</router-link>
+        <router-link
+          :to="`/history/${$route.params.id}`"
+          active-class="active"
+        >{{ $t('message.header.tradeHistory') }}</router-link>
       </st-row>
       <!-- <st-row class="item" align="center">
         <router-link to="/direct">{{$t('message.header.newPlayer')}}</router-link>

@@ -82,7 +82,7 @@ export default {
   }
   ],
   router: {
-    middleware: ['i18n', 'getcarrucy']
+    middleware: ['i18n']
   },
   /*
    ** Nuxt.js modules
