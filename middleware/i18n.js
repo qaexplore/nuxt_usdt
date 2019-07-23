@@ -7,7 +7,7 @@ export default function ({
   error,
   redirect
 }) {
-  const defaultLocale = app.i18n.fallbackLocale
+  const defaultLocale = app.$cookies.get('locale') || 'cn'
   // If middleware is called from hot module replacement, ignore it
   if (isHMR) {
     return
