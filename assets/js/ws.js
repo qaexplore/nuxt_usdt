@@ -1,6 +1,6 @@
 import Utils from './utils'
 class Socket {
-  constructor(url, store, route) {
+  constructor(url, store) {
     this.url = url
     this.ws = {}
     this.reConnectTimer = null
@@ -9,7 +9,6 @@ class Socket {
     this.closeTimer = null
     this.dataId = null
     this.store = store
-    this.route = route
   }
   // 连接
   connection() {
@@ -113,9 +112,8 @@ class Socket {
   }
   // 深度
   orderBookCallBack(data) {
-    // console.log(data)
-    let productId = this.route.params.id;
-    if (data.product !== productId) return;
+    let productId = this.store.state.carrucy_id;
+    if (Number(data.product) !== Number(productId)) return;
     this.dataId = data.id
     if (data.id - this.dataId !== 1 && data.id - this.dataId !== 0) {
       sub.cancelOrderBook(data.product)

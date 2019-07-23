@@ -67,8 +67,8 @@ export default {
   data() {
     return {
       wsRq: new WsRq(this.$store),
-      socket: new Socket(ApiConfig.webSocketURL, this.$store, this.$route),
-      sub: {},
+      socket: new Socket(ApiConfig.webSocketURL, this.$store),
+      sub: new Sub(this.$store.state.market.contract, this.$store),
       routeId: this.$route.params.id,
       isSpread: false,
       boxHeight: 0,
@@ -161,7 +161,7 @@ export default {
       handler(val) {
         if (val) {
           this.wsRq.clear();
-          !!this.sub.subAll && this.sub.subAll(this.routeId);
+          this.sub.subAll(this.routeId);
         } else {
           this.wsRq.getAll(this.routeId, true);
         }
@@ -172,6 +172,7 @@ export default {
         this.routeId = val.params.id;
         this.close();
         this.showTitle();
+        this.$store.commit("SET_CARRUCY_ID", this.routeId);
       }
     },
     last(val) {

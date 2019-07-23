@@ -1,7 +1,8 @@
 const state = () => ({
   locales: ['cn', 'en', 'ja', 'ko', 'ru'],
   locale: 'cn',
-  domain: null
+  domain: null,
+  carrucy_id: null
 })
 
 const mutations = {
@@ -12,6 +13,9 @@ const mutations = {
   },
   SET_DOMAIN(state, domain) {
     state.domain = domain;
+  },
+  SET_CARRUCY_ID(state, id) {
+    state.carrucy_id = id;
   }
 }
 
