@@ -14,9 +14,9 @@ export default async function ({
       }
     })
     store.commit('market/SET_CONTRACT', arr)
-    let id = !route.params.id ? arr[0].id : route.params.id
+    let id = (!route.params.id || route.params.id === 'undefined') ? arr[0].id : route.params.id
     store.commit('SET_CARRUCY_ID', id)
-    if (!!route.params.id) return
+    if (!!route.params.id && route.params.id !== 'undefined') return
     redirect(`/trade/${id}`)
   }).catch(err => {
     console.log(err)

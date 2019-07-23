@@ -46,7 +46,6 @@
 <script>
 import ApiConfig from "@/assets/js/config/api.config";
 import Product from "@/assets/js/config/product";
-import store from "@/store/index";
 import SwapsApi from "@/assets/js/api/swapsApi";
 import WsRq from "@/assets/js/request";
 import Socket from "@/assets/js/ws";
