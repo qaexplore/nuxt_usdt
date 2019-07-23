@@ -76,6 +76,9 @@ export default {
     src: '~/plugins/toast'
   }, {
     src: '~/plugins/emerge'
+  }, {
+    src: '~/plugins/qrcode',
+    ssr: false
   }
   ],
   router: {

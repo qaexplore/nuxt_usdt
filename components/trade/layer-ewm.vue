@@ -22,13 +22,14 @@ export default {
   },
   methods: {
     initCode() {
-      this.code = new QRCode(this.$refs.code, {
+      let self = this;
+      this.code = new this.$qrcode(this.$refs.code, {
         text: `https://wap.${ApiConfig.domain}?locale=${this.lang}`,
         width: 128,
         height: 128,
         colorDark: "#000000",
         colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.L
+        correctLevel: self.$qrcode.CorrectLevel.L
       });
     }
   },
@@ -45,7 +46,7 @@ export default {
     }
   },
   mounted() {
-    // this.initCode();
+    this.initCode();
   }
 };
 </script>
@@ -55,13 +56,15 @@ export default {
 .layer-ewm {
   .themeBlack();
   position: absolute;
-  width: 172px;
+  // width: 172px;
   height: 195px;
   padding: 20px;
   background-color: @ewmBgColor;
   .code {
-    width: 128px;
-    height: 128px;
+    width: 138px;
+    height: 138px;
+    padding: 5px;
+    background-color: #fff;
     background-size: cover;
   }
   .text {
