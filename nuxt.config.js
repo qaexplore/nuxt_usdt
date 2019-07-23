@@ -72,6 +72,8 @@ export default {
     src: '~/plugins/scrollbar'
   }, {
     src: '~/plugins/stslider'
+  }, {
+    src: '~/plugins/toast'
   }
   ],
   router: {
