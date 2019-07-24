@@ -42,6 +42,7 @@ import SwapsApi from "@/assets/js/api/swapsApi.js";
 import newSwapApi from "@/assets/js/api/newSwapApi.js";
 export default {
   name: "fund",
+  middleware: "swap",
   components: {
     DirectTable
   },
@@ -49,7 +50,7 @@ export default {
     return {
       theadList: this.$t(`message.direct.insurance.theadList`),
       tbodyList: null,
-      contract: null,
+      contract: this.$store.state.swapList,
       tdWidth: ["428px", "449px"],
       orderData: {
         contractId: 1,
@@ -67,22 +68,6 @@ export default {
     }
   },
   methods: {
-    // 获取 币本位合约列表
-    getContractList() {
-      newSwapApi
-        .getContractList()
-        .then(res => {
-          if (res.data) {
-            this.contract = res.data.contractList;
-          } else {
-            this.contract = null;
-          }
-        })
-        .catch(e => {
-          this.contract = null;
-          console.log(e);
-        });
-    },
     // 获取列表
     getRatioList() {
       this.orderData.contractId = this.$route.params.id;
@@ -128,9 +113,7 @@ export default {
   mounted() {
     this.getRatioList();
   },
-  created() {
-    this.getContractList();
-  }
+  created() {}
 };
 </script>
 

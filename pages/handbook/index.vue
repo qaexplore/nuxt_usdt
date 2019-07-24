@@ -37,6 +37,7 @@ import Navigation from "@/components/handbook/navigation";
 import ApiConfig from "@/myConfig/api.config.js";
 export default {
   name: "handbook",
+  scrollToTop: true,
   components: {
     SwapsHeader,
     Navigation
@@ -49,7 +50,7 @@ export default {
   data() {
     return {
       screenWidth: null,
-      elementNav: document.querySelector("#navigation"),
+      elementNav: process.client && document.querySelector("#navigation"),
       ifreamSrc: ApiConfig.footerDomain,
       ifreamHeight: "210"
     };
@@ -62,7 +63,6 @@ export default {
       setTimeout(() => {
         this.getNavigationHeight();
       }, 100);
-      window.scrollTo(0, 0);
     },
     "$i18n.locale"() {
       setTimeout(() => {

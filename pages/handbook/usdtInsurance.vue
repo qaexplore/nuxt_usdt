@@ -47,6 +47,7 @@ import Filter from "@/assets/js/filter";
 import SwapsApi from "@/assets/js/api/swapsApi.js";
 export default {
   name: "fund",
+  middleware: "history_list",
   components: {
     DirectTable
   },
@@ -54,7 +55,7 @@ export default {
     return {
       theadList: this.$t(`message.direct.usdtInsurance.theadList`),
       tbodyList: null,
-      contract: null,
+      contract: this.$store.state.market.contract,
       tdWidth: ["428px", "449px"],
       orderData: {
         contractId: 1001,
@@ -72,22 +73,6 @@ export default {
     }
   },
   methods: {
-    init() {
-      SwapsApi.getContractAllList()
-        .then(res => {
-          let arr = res.data.contractList || [];
-          arr.forEach(item => {
-            if (!item.contractParam) {
-              item.contractParam = {};
-            }
-          });
-          this.$store.commit("market/SET_CONTRACT", arr);
-          this.contract = arr;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
     // 获取列表
     getRatioList() {
       this.orderData.contractId = this.$route.params.id;
@@ -132,9 +117,7 @@ export default {
   mounted() {
     this.getRatioList();
   },
-  created() {
-    this.init();
-  }
+  created() {}
 };
 </script>
 

@@ -45,6 +45,7 @@ import SwapsApi from "@/assets/js/api/swapsApi.js";
 import newSwapApi from "@/assets/js/api/newSwapApi.js";
 export default {
   name: "compensate",
+  middleware: "swap",
   components: {
     DirectTable
   },
@@ -52,7 +53,7 @@ export default {
     return {
       theadList: this.$t(`message.direct.compensate.theadList`),
       tbodyList: null,
-      contract: null,
+      contract: this.$store.state.swapList,
       tdWidth: ["428px", "449px"],
       orderData: {
         contractId: 1,
@@ -70,38 +71,6 @@ export default {
     }
   },
   methods: {
-    // 获取 币本位合约列表
-    getContractList() {
-      newSwapApi
-        .getContractList()
-        .then(res => {
-          if (res.data) {
-            this.contract = res.data.contractList;
-          } else {
-            this.contract = null;
-          }
-        })
-        .catch(e => {
-          this.contract = null;
-          console.log(e);
-        });
-    },
-    init() {
-      SwapsApi.getContractAllList()
-        .then(res => {
-          let arr = res.data.contractList || [];
-          arr.forEach(item => {
-            if (!item.contractParam) {
-              item.contractParam = {};
-            }
-          });
-          this.$store.commit("market/SET_CONTRACT", arr);
-          this.contract = arr;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
     // 上一页
     turnPre() {
       if (this.orderData.page > 1) {
@@ -156,11 +125,8 @@ export default {
   },
   mounted() {
     this.getRatioList();
-    this.getContractList();
   },
-  created() {
-    this.getContractList();
-  }
+  created() {}
 };
 </script>
 

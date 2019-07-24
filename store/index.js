@@ -2,7 +2,9 @@ const state = () => ({
   locales: ['cn', 'en', 'ja', 'ko', 'ru'],
   locale: 'cn',
   domain: null,
-  carrucy_id: null
+  carrucy_id: null,
+  regularList: [],
+  swapList: []
 })
 
 const mutations = {
@@ -16,6 +18,12 @@ const mutations = {
   },
   SET_CARRUCY_ID(state, id) {
     state.carrucy_id = id;
+  },
+  SET_REGULAR_LIST(state, list) {
+    state.regularList = list
+  },
+  SET_SWAP_LIST(state, list) {
+    state.swapList = list
   }
 }
 

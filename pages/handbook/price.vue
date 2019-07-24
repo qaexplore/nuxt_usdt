@@ -71,7 +71,7 @@ export default {
               item.contractParam = {};
             }
           });
-          this.$store.commit("SET_CONTRACT", arr);
+          this.$store.commit("market/SET_CONTRACT", arr);
           this.contract = arr;
         })
         .catch(err => {
