@@ -60,6 +60,7 @@ export default {
     },
     "$store.state.dictionary.screenWidth": {
       handler(val) {
+        if (!process.client) return;
         if (val <= 1366) {
           this.isSpread = true;
         } else {
@@ -104,6 +105,7 @@ export default {
     },
     isSpread: {
       handler(val) {
+        if (!process.client) return;
         if (val) {
           this.$store.commit("dictionary/SET_BOXWIDTH", 50);
         } else {
