@@ -82,27 +82,6 @@ export default {
       ifreamHeight: "210"
     };
   },
-  asyncData({ route, store }) {
-    return SwapsApi.getContractAllList()
-      .then(res => {
-        let arr = res.data.contractList || [];
-        arr = Filter.reRepeatArr(arr, "id");
-        arr.forEach(item => {
-          if (!item.contractParam) {
-            item.contractParam = {};
-          }
-        });
-        store.commit("market/SET_CONTRACT", arr);
-        let id =
-          route.name !== "trade" || route.name !== "index"
-            ? arr[0].id
-            : route.params.id;
-        store.commit("SET_CARRUCY_ID", id);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  },
   components: {
     SwapsHeader,
     Toolbar,
@@ -280,14 +259,34 @@ export default {
       ).toString() +
       "px";
 
-    if (this.$store.state.market.tradeFirst) {
-      this.init();
-      this.$store.commit("market/SET_TRADEFIRST", false);
-    } else {
-      this.close();
-      this.routeId = this.$route.params.id;
-      this.sub = new Sub(this.$store.state.market.contract, this.$store);
-    }
+    SwapsApi.getContractAllList()
+      .then(res => {
+        let arr = res.data.contractList || [];
+        arr = Filter.reRepeatArr(arr, "id");
+        arr.forEach(item => {
+          if (!item.contractParam) {
+            item.contractParam = {};
+          }
+        });
+        this.$store.commit("market/SET_CONTRACT", arr);
+        let id =
+          this.$route.name !== "trade" || this.$route.name !== "index"
+            ? arr[0].id
+            : this.$route.params.id;
+        this.$store.commit("SET_CARRUCY_ID", id);
+        // 初始化页面
+        if (this.$store.state.market.tradeFirst) {
+          this.init();
+          this.$store.commit("market/SET_TRADEFIRST", false);
+        } else {
+          this.close();
+          this.routeId = this.$route.params.id;
+          this.sub = new Sub(this.$store.state.market.contract, this.$store);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
     // 更改header信息
     this.showTitle();
   },
