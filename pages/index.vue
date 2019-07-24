@@ -60,6 +60,7 @@ import TradeDetailList from "@/components/trade/trade-detail-list";
 import AssetInformation from "@/components/trade/asset-information";
 import TradeOperate from "@/components/trade/trade-operate";
 import Toast2 from "@/components/trade/toast2.vue";
+import Filter from "@/assets/js/filter";
 
 export default {
   name: "index",
@@ -80,6 +81,27 @@ export default {
       ifreamSrc: ApiConfig.footerDomain,
       ifreamHeight: "210"
     };
+  },
+  asyncData({ route, store }) {
+    return SwapsApi.getContractAllList()
+      .then(res => {
+        let arr = res.data.contractList || [];
+        arr = Filter.reRepeatArr(arr, "id");
+        arr.forEach(item => {
+          if (!item.contractParam) {
+            item.contractParam = {};
+          }
+        });
+        store.commit("market/SET_CONTRACT", arr);
+        let id =
+          route.name !== "trade" || route.name !== "index"
+            ? arr[0].id
+            : route.params.id;
+        store.commit("SET_CARRUCY_ID", id);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
   components: {
     SwapsHeader,

@@ -474,10 +474,11 @@ export default {
     this.refresh();
 
     this.SET_ACTION_WIDTH(this.local);
-    this.timer = setInterval(() => {
-      console.log("98765");
-      this.refresh();
-    }, 3000);
+    if (this.$store.state.user.userInfo) {
+      this.timer = setInterval(() => {
+        this.refresh();
+      }, 3000);
+    }
     // let that = this
     // setTimeout(function(){
     //   if (that.list.length > 0) {
