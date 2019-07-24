@@ -269,11 +269,7 @@ export default {
           }
         });
         this.$store.commit("market/SET_CONTRACT", arr);
-        let id =
-          this.$route.name !== "trade" || this.$route.name !== "index"
-            ? arr[0].id
-            : this.$route.params.id;
-        this.$store.commit("SET_CARRUCY_ID", id);
+        this.$store.commit("SET_CARRUCY_ID", this.$route.params.id);
         // 初始化页面
         if (this.$store.state.market.tradeFirst) {
           this.init();
