@@ -10,6 +10,7 @@ import Cookie from "~/myConfig/cookie";
 import ApiConfig from "~/myConfig/api.config.js";
 export default {
   name: "default",
+  middleware: "router",
   scrollToTop: true,
   data() {
     return {

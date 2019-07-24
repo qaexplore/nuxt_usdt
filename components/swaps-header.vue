@@ -16,7 +16,7 @@
       <st-row align="center" class="item">
         <router-link
           :class="{active: $route.path.indexOf('trade/') > 0}"
-          :to="`/trade/${$route.params.id}`"
+          :to="`/trade/${$route.params.id || 1001}`"
           class="usdt"
         >
           {{ $t('message.header.usdtTrade') }}
@@ -38,7 +38,7 @@
       <st-row align="center" class="item">
         <!-- +$route.params.id -->
         <router-link
-          :to="`/history/${$route.params.id}`"
+          :to="`/history/${$route.params.id || 1001}`"
           active-class="active"
         >{{ $t('message.header.tradeHistory') }}</router-link>
       </st-row>
