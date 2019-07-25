@@ -70,6 +70,8 @@ export default ({
     fallbackLocale: app.$cookies.get('locale') || 'cn',
     messages: messages
   })
-  store.commit("dictionary/SET_THEME", app.$cookies.get('theme'))
+
+  // 设置主色
+  store.commit("dictionary/SET_THEME", app.$cookies.get('theme') || 'black')
 
 }
