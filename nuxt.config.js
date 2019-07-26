@@ -82,8 +82,7 @@ export default {
   }, {
     src: '~/plugins/history_list',
     ssr: false
-  }
-    , {
+  }, {
     src: '~/plugins/regular',
     ssr: false
   }, {
