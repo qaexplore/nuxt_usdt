@@ -79,8 +79,17 @@ export default {
   }, {
     src: '~/plugins/qrcode',
     ssr: false
+  }, {
+    src: '~/plugins/history_list',
+    ssr: false
   }
-  ],
+    , {
+    src: '~/plugins/regular',
+    ssr: false
+  }, {
+    src: '~/plugins/swap',
+    ssr: false
+  }],
   router: {
     middleware: ['i18n']
   },

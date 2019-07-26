@@ -47,7 +47,6 @@ import Filter from "@/assets/js/filter";
 import SwapsApi from "@/assets/js/api/swapsApi.js";
 export default {
   name: "fund",
-  middleware: "history_list",
   components: {
     DirectTable
   },

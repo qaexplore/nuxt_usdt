@@ -45,7 +45,6 @@ import SwapsApi from "@/assets/js/api/swapsApi.js";
 import newSwapApi from "@/assets/js/api/newSwapApi.js";
 export default {
   name: "compensate",
-  middleware: "swap",
   components: {
     DirectTable
   },

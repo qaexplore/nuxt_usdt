@@ -42,7 +42,6 @@ import SwapsApi from "@/assets/js/api/swapsApi.js";
 import newSwapApi from "@/assets/js/api/newSwapApi.js";
 export default {
   name: "fund",
-  middleware: "swap",
   components: {
     DirectTable
   },

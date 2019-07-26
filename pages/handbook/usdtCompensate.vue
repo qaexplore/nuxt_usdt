@@ -44,7 +44,6 @@ import Filter from "@/assets/js/filter";
 import SwapsApi from "@/assets/js/api/swapsApi.js";
 export default {
   name: "compensate",
-  middleware: "history_list",
   components: {
     DirectTable
   },

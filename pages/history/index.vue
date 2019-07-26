@@ -33,7 +33,6 @@ import ApiConfig from "@/myConfig/api.config.js";
 
 export default {
   name: "historyPage",
-  middleware: "history_list",
   data() {
     return {
       ifreamSrc: ApiConfig.footerDomain,
