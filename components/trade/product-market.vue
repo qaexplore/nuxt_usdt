@@ -17,7 +17,7 @@
             <span
               class="rate-money"
               v-if="rate !== 0 "
-            >≈{{unit}}{{ (ticker.last * rate) | splitFormat(figure.indexPriceFloat) }}</span>
+            >≈{{unit}}{{ (ticker.last * rate) || 0 | splitFormat(figure.indexPriceFloat) }}</span>
           </p>
           <p class="label">{{$t('message.productInfo.lastPrice')}}</p>
         </st-row>
